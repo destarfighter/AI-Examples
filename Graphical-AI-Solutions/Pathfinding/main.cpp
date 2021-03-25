@@ -30,8 +30,6 @@ int main()
 	// load Images -> Textures -> sprites
 	// load problem data
 
-	AnimatedSprite test = AnimatedSprite();
-
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Pathfinder");
 	window.setActive(false);
 
