@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "../Graphical-AI-Solutions/Pathfinder.h"
+#include "../Pathfinding/Pathfinder.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

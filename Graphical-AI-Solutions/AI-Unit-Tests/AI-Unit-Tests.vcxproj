@@ -77,17 +77,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions;$(IncludePath)</IncludePath>
+    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions;$(IncludePath)</IncludePath>
+    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,8 +103,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Pathfinder.obj</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Pathfinder.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -117,7 +119,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Pathfinder.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -136,8 +139,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Pathfinder.obj</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Graphical-AI-Solutions\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Pathfinder.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,7 +159,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);D:\users\Dennis\Projekt\DeStarfighter-AI-Examples\Graphical-AI-Solutions\Pathfinding\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Pathfinder.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -172,8 +176,8 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Graphical-AI-Solutions\Graphical-AI-Solutions.vcxproj">
-      <Project>{611273d5-aed6-4046-978d-3bbf743d3cac}</Project>
+    <ProjectReference Include="..\Pathfinding\Pathfinding.vcxproj">
+      <Project>{8cbe72ac-4aee-4dc4-b8bb-ca3822a71d8f}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

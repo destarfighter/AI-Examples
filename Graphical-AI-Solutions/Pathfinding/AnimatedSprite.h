@@ -1,6 +1,28 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+struct AnimFrameData {
+	// the index of the first frame of an animation
+	int startFrame;
+	// the total number of frames for said animation
+	int numFrames;
+	// the offset of the first frame of an animation
+	int offsetX;
+	int offsetY;
+	// the size of each frame of an animation
+	int animWidth;
+	int animHeight;
+};
+
+struct AnimData {
+	// ImageFile with all the animations
+	sf::Texture spriteSheet;
+	// the frame data for all the different animations
+	AnimFrameData* frameInfo;
+	// the number of different animations
+	unsigned int numOfAnimatons;
+};
+
 class AnimatedSprite : sf::Sprite {
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData;
@@ -16,19 +38,4 @@ class AnimatedSprite : sf::Sprite {
 	void Initialize(AnimData, int startingAnimNum);
 	void UpdateAnim(float deltaTime);
 	void ChangeAnim(int num);
-
-};
-
-struct AnimFrameData {
-	// the index of the first frame of an animation
-	int startFrame;
-	// the total number of frames for said animation
-	int numFrames;
-};
-
-struct AnimData {
-	// ImageFile with all the animations
-	sf::Texture spriteSheet;
-	// the frame data for all the different animations
-	AnimFrameData* frameInfo;
 };
