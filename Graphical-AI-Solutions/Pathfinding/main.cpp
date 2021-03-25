@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <thread>
-
+#include "AnimatedSprite.h"
 
 
 void renderingThread(sf::RenderWindow* window) {
@@ -29,6 +29,8 @@ int main()
 {
 	// load Images -> Textures -> sprites
 	// load problem data
+
+	AnimatedSprite test = AnimatedSprite();
 
 	sf::RenderWindow window(sf::VideoMode(200, 200), "Pathfinder");
 	window.setActive(false);
