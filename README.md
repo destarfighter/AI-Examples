@@ -7,3 +7,5 @@ sharing common code through a DLL and tested through a solution-wide Unit-Test p
 for all implementations. 
 
 The solution-process and results will be displayed with a graphical compontent from SFML (https://www.sfml-dev.org/index.php)
+
+The Project in development at the moment will explore the basics of path-finding and path-following in a 2d-sapce. 
