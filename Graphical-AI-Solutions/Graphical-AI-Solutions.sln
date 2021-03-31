@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1433
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI-Unit-Tests", "AI-Unit-Tests\AI-Unit-Tests.vcxproj", "{501FE732-3660-41F2-AD85-5847BF165A0A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA82BF24-CAB8-42EF-8966-D322B40B23AE} = {DA82BF24-CAB8-42EF-8966-D322B40B23AE}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pathfinding", "Pathfinding\Pathfinding.vcxproj", "{8CBE72AC-4AEE-4DC4-B8BB-CA3822A71D8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA82BF24-CAB8-42EF-8966-D322B40B23AE} = {DA82BF24-CAB8-42EF-8966-D322B40B23AE}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfml_animation_extension", "sfml_animation_extension\sfml_animation_extension.vcxproj", "{DA82BF24-CAB8-42EF-8966-D322B40B23AE}"
 EndProject

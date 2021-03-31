@@ -1,9 +1,17 @@
-#include "pch.h"
 #include "AnimatedSprite.h"
 
 void AnimatedSprite::Initialize(AnimData _animData, unsigned int _startingAnimNum) {
 		animData = _animData;
 		animNum = _startingAnimNum;
+		sf::Sprite::setPosition(0.f, 0.f);
+
+		sf::Sprite::setTexture(*animData.spriteSheet_ptr);
+		sf::Sprite::setTextureRect(sf::IntRect(
+			animData.frameInfo[animNum].animOffset.left
+			+ animData.frameInfo[animNum].animOffset.width * frameNum,
+			animData.frameInfo[animNum].animOffset.top,
+			animData.frameInfo[animNum].animOffset.width,
+			animData.frameInfo[animNum].animOffset.height));
 }
 
 void AnimatedSprite::UpdateAnim(float _deltaTime) {

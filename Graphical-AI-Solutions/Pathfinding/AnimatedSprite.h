@@ -1,12 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#ifdef SFMLANIMATIONEXTENSION_EXPORTS
-#define SFMLANIMATIONEXTENSION_API __declspec(dllexport)
-#else
-#define SFMLANIMATIONEXTENSION_API __declspec(dllimport)
-#endif // ANIMATION_LIBRARY_EXPORTS
-
 struct AnimFrameData {
 	// the offset of the first frame and the size of the images of an animation
 	sf::Rect<int> animOffset;
@@ -23,7 +17,7 @@ struct AnimData {
 	unsigned int numOfAnimatons;
 };
 
-class SFMLANIMATIONEXTENSION_API AnimatedSprite : sf::Sprite {
+class AnimatedSprite : public sf::Sprite {
 
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData;
@@ -34,7 +28,7 @@ class SFMLANIMATIONEXTENSION_API AnimatedSprite : sf::Sprite {
 	// Anmount of time the current frame has been displayed
 	float frameTime{0};
 	// The FPS the animation is running at (24FPS by default)
-	float animFPS{ 24.0f };
+	float animFPS{ 128.0f };
 	// the draw order of the animation in the render-pipeline. (0 by default)
 	int drawOrder{ 0 };
 

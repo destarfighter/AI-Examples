@@ -4,20 +4,20 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace AIUnitTests
+namespace Pathfinding
 {
-	TEST_CLASS(Pathfinder_Tester)
+	TEST_CLASS(Pathfinder_TEST)
 	{
 	public:
 		
-		TEST_METHOD(findpath_Tester)
+		TEST_METHOD(findpath_IS_0)
 		{
 			auto pf = Pathfinder();
 			int result = pf.findPath();
 			Assert::AreEqual(result, 0);
 		}
 
-		TEST_METHOD(findpath_Tester_TWO)
+		TEST_METHOD(findpath_IS_NOT_1)
 		{
 			auto pf = Pathfinder();
 			int result = pf.findPath();
