@@ -28,7 +28,7 @@ class AnimatedSprite : public sf::Sprite {
 	// Anmount of time the current frame has been displayed
 	float frameTime{0};
 	// The FPS the animation is running at (24FPS by default)
-	float animFPS{ 128.0f };
+	float animFPS{ 24.0f };
 	// the draw order of the animation in the render-pipeline. (0 by default)
 	int drawOrder{ 0 };
 
