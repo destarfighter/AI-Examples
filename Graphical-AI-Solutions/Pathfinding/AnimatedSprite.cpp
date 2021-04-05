@@ -1,12 +1,12 @@
 #include "AnimatedSprite.h"
 
-void AnimatedSprite::Initialize(AnimData _animData, unsigned int _startingAnimNum) {
+void AnimatedSprite::initialize(AnimData _animData, unsigned int _startingAnimNum) {
 		animData = _animData;
 		animNum = _startingAnimNum;
 		sf::Sprite::setPosition(0.f, 0.f);
 		sf::Sprite::setTexture(*animData.spriteSheet_ptr);
 		// Set animation to default animation.
-		ChangeAnim(0);
+		changeAnim(0);
 }
 
 void AnimatedSprite::update(float _deltaTime) {
@@ -37,7 +37,7 @@ void AnimatedSprite::update(float _deltaTime) {
 	}
 }
 
-void AnimatedSprite::ChangeAnim(unsigned int _num) {
+void AnimatedSprite::changeAnim(unsigned int _num) {
 	if (_num > animData.numOfAnimatons)
 		throw std::exception("Animation number out of range.");
 	animNum = _num;

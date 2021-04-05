@@ -13,15 +13,16 @@ public:
 class SolveProblemState : public LittleProblemSolverState {
 
 	void update(float deltaTime) override {
-		if (true) {
-			parent_->setState(FollowPathState());
-		}
+		
+		// find path / check if finished
+
+		// if finished. - store result and change state to FollowPathState
 	};
 	void enter() override {
-
+		// Set Animation to thinking animation
 	};
 	void exit() override {
-
+		// Do nothing? 
 	};
 };
 

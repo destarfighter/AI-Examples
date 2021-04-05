@@ -7,26 +7,35 @@
 #include "LittleProblemSolver.h"
 
 
-LittleProblemSolver CreateCharacter() {
+LittleProblemSolver CreateCharacter(MapData mapData) {
 
 	auto texture = Loader::loadTexture("Resources/Images/Positiv Animation Sheet.png");
 	texture->setSmooth(true);
 	texture->setRepeated(false);
 	
 	auto frameInfo = std::vector<AnimFrameData>();
-	frameInfo.push_back(AnimFrameData{ sf::Rect<int>(6 * 48, 0, 48, 48), 5 });
+	frameInfo.push_back(AnimFrameData{ sf::Rect<int>(6 * 48, 0, 48, 48), 5, "celebrate" });
 	AnimData animData{ texture, frameInfo, 1 };
 
 	auto new_character = LittleProblemSolver();
-	new_character.Initialize(animData, 0);
+	new_character.initialize(animData, 0, mapData);
 	new_character.setPosition(0.f, 0.f);
 
 	return new_character; 
 }
 
-TileMap CreateMap() {
-	//create tileset
-	const int level[] = {
+TileMap CreateTileMap(MapData mapData) {
+	// create the tilemap from the level definition
+	TileMap new_map;
+	if (!new_map.load("Resources/Images/tileset.png", mapData))
+		throw std::exception("error while loading tileset!");
+
+	return new_map;
+}
+
+MapData CreateMapData() {
+
+	std::vector<int> level = {
 		0, 0, 0, 0, 0, 3, 0, 1, 1,
 		0, 0, 0, 0, 0, 0, 0, 1, 0,
 		0, 1, 1, 0, 1, 1, 0, 0, 0,
@@ -37,12 +46,9 @@ TileMap CreateMap() {
 		0, 0, 1, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 2, 0, 0, 0, 0 };
 
-	// create the tilemap from the level definition
-	TileMap new_map;
-	if (!new_map.load("Resources/Images/tileset.png", sf::Vector2u(32, 32), level, 9, 9))
-		throw std::exception("error while loading tileset!");
+	auto new_mapData = MapData{ sf::Vector2u(32, 32), level, 9, 9 };
 
-	return new_map;
+	return new_mapData;
 }
 
 // Sorted-Draw-List
@@ -53,12 +59,15 @@ static std::vector<Updatable*> UpdatableObjects;
 int main() {
 	sf::RenderWindow window(sf::VideoMode(288, 288), "Pathfinder");
 
+	// Create MapData
+	auto mapData = CreateMapData();
+
 	// Create Map
-	auto map = CreateMap();
+	auto map = CreateTileMap(mapData);
 	DrawableObjects.emplace(-1, &map);
 
 	// Create Character
-	auto problemSolver = CreateCharacter();
+	auto problemSolver = CreateCharacter(mapData);
 	DrawableObjects.emplace(10, &problemSolver);
 	UpdatableObjects.push_back(&problemSolver);
 

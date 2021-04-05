@@ -7,13 +7,15 @@ struct AnimFrameData {
 	sf::Rect<int> animOffset;
 	// the total number of frames for said animation
 	unsigned int numFrames;
+	// the name of the anomation
+	std::string animName;
 };
 
 struct AnimData {
 	// ImageFile with all the animations
 	std::shared_ptr<sf::Texture> spriteSheet_ptr;
 	// the frame data for all the different animations
-	std::vector<AnimFrameData> frameInfo; // make into vector? 
+	std::vector<AnimFrameData> frameInfo;
 	// the number of different animations
 	unsigned int numOfAnimatons;
 };
@@ -34,8 +36,8 @@ class AnimatedSprite : public sf::Sprite, public Updatable {
 	int drawOrder{ 0 };
 
 public:
-	void Initialize(AnimData _animData, unsigned int _startingAnimNum);
+	virtual void initialize(AnimData _animData, unsigned int _startingAnimNum);
 	virtual void update(float deltaTime) override;
-	void ChangeAnim(unsigned int _num);
+	void changeAnim(unsigned int _num);
 	void setDrawOrder(int value);
 };
