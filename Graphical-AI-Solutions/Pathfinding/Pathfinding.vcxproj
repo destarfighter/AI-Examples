@@ -141,16 +141,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIController.cpp" />
     <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="LittleProblemSolver.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIController.h" />
+    <ClInclude Include="AIState.h" />
     <ClInclude Include="AnimatedSprite.h" />
-    <ClInclude Include="DrawOrderInterface.h" />
+    <ClInclude Include="LittleProblemSolver.h" />
+    <ClInclude Include="LittleProblemSolverStates.hpp" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Pathfinder.h" />
+    <ClInclude Include="Updatable.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png" />

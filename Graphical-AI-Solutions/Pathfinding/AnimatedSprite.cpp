@@ -9,7 +9,7 @@ void AnimatedSprite::Initialize(AnimData _animData, unsigned int _startingAnimNu
 		ChangeAnim(0);
 }
 
-void AnimatedSprite::UpdateAnim(float _deltaTime) {
+void AnimatedSprite::update(float _deltaTime) {
 	// Update how long the current frame has been displayed
 	frameTime += _deltaTime;
 
@@ -17,7 +17,7 @@ void AnimatedSprite::UpdateAnim(float _deltaTime) {
 	if (frameTime > (1 / animFPS)) {
 		// The number of frames to increment is the integral result of
 		// frameTime / (1 / animFPS), which is frameTime * animFPS
-		frameNum += static_cast<unsigned int>(frameTime * animFPS);
+		frameNum += frameTime * animFPS;
 		// Check if we advanced past the last frame, and must wrap.
 		if (frameNum >= animData.frameInfo[animNum].numFrames) {
 			// The modulus (%) makes sure we wrap correctly.

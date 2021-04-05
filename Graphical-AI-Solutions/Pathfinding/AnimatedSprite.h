@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Updatable.h"
 
 struct AnimFrameData {
 	// the offset of the first frame and the size of the images of an animation
@@ -17,7 +18,7 @@ struct AnimData {
 	unsigned int numOfAnimatons;
 };
 
-class AnimatedSprite : public sf::Sprite {
+class AnimatedSprite : public sf::Sprite, public Updatable {
 
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData;
@@ -28,13 +29,13 @@ class AnimatedSprite : public sf::Sprite {
 	// Anmount of time the current frame has been displayed
 	float frameTime{0};
 	// The FPS the animation is running at (24FPS by default)
-	float animFPS{ 24.0f };
+	float animFPS{ 10.0f };
 	// the draw order of the animation in the render-pipeline. (0 by default)
 	int drawOrder{ 0 };
 
 public:
 	void Initialize(AnimData _animData, unsigned int _startingAnimNum);
-	void UpdateAnim(float _deltaTime);
+	virtual void update(float deltaTime) override;
 	void ChangeAnim(unsigned int _num);
 	void setDrawOrder(int value);
 };
