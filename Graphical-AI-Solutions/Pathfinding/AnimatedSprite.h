@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Updatable.h"
 
 struct AnimFrameData {
 	// the offset of the first frame and the size of the images of an animation
@@ -20,7 +19,7 @@ struct AnimData {
 	unsigned int numOfAnimatons;
 };
 
-class AnimatedSprite : public sf::Sprite, public Updatable {
+class AnimatedSprite : public sf::Sprite {
 
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData;

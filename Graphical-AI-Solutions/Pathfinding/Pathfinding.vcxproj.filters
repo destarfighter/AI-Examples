@@ -16,49 +16,49 @@
     <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{c82d2d5e-4f13-40ac-896a-821ab0cb6428}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Services">
-      <UniqueIdentifier>{21289227-0a85-4697-bff9-a3b02ba14ac6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\AI">
       <UniqueIdentifier>{3c21768a-28cc-44e7-97bc-63cca364d7ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{45ab274c-2a22-46e0-ab06-76d6848e2845}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{e0fceb93-33bc-4da5-9b66-bf608beb6b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{21289227-0a85-4697-bff9-a3b02ba14ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldObjects">
+      <UniqueIdentifier>{2fbc418f-c6e0-48b3-b7ed-911736789c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World Objects">
+      <UniqueIdentifier>{97817328-e780-4fd4-b8e2-2b5104c21e9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimatedSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LittleProblemSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AIController.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="Pathfinder.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Source Files\World Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="LittleProblemSolver.cpp">
+      <Filter>Source Files\World Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\World Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Source Files\World Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldStateLocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimatedSprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LittleProblemSolver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Updatable.h">
-      <Filter>Header Files\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="Loader.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
@@ -71,8 +71,32 @@
     <ClInclude Include="Pathfinder.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
+    <ClInclude Include="ProblemCreator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPackage.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ProblemPackage.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldState.hpp">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LittleProblemSolver.h">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
     <ClInclude Include="LittleProblemSolverStates.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldStateLocator.h">
+      <Filter>Header Files\Services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,6 @@ void AnimatedSprite::initialize(AnimData _animData, unsigned int _startingAnimNu
 void AnimatedSprite::update(float _deltaTime) {
 	// Update how long the current frame has been displayed
 	frameTime += _deltaTime;
-
 	// This check determines if it's time to change to the next frame.
 	if (frameTime > (1 / animFPS)) {
 		// The number of frames to increment is the integral result of

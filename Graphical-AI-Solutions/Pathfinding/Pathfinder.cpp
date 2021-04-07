@@ -1,5 +1,5 @@
 #include "Pathfinder.h"
 
-int Pathfinder::findPath() {
-    return 0;
+std::vector<unsigned int> Pathfinder::findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData) {
+    return std::vector<unsigned int>(); // return not implemented
 }

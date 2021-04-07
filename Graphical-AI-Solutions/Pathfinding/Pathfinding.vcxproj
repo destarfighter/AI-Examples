@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\Progam Files\SFML\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,6 +94,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,6 +113,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\Progam Files\SFML\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +133,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +151,7 @@
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
+    <ClCompile Include="WorldStateLocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
@@ -155,9 +160,13 @@
     <ClInclude Include="LittleProblemSolver.h" />
     <ClInclude Include="LittleProblemSolverStates.hpp" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="MapPackage.h" />
+    <ClInclude Include="ProblemCreator.h" />
+    <ClInclude Include="ProblemPackage.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Pathfinder.h" />
-    <ClInclude Include="Updatable.h" />
+    <ClInclude Include="WorldState.hpp" />
+    <ClInclude Include="WorldStateLocator.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png" />
