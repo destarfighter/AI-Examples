@@ -21,7 +21,7 @@ int main() {
 
 	//// Create Map
 	auto map = CreateTileMap(mapData);
-	worldState->addNewObject(map, true, false);
+	worldState->addNewObject(std::make_shared<sf::WorldObject>(map), true, false);
 
 	////// Create Character
 	//auto problemSolver = CreateCharacter(mapData);
