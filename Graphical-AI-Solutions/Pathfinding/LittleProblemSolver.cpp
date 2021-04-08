@@ -2,14 +2,20 @@
 
 void LittleProblemSolver::update(float deltaTime) {
 	// Update Animation
-	AnimatedSprite::update(deltaTime);
+	 animatedSprite_.update(deltaTime);
 	// Update character based on current state
 	//aiController_.update(deltaTime);
 }
 
-void LittleProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum) {
+void LittleProblemSolver::draw(sf::RenderWindow& window) {
+	window.draw(animatedSprite_);
+}
+
+void LittleProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vector2f startPosition) {
+	position_ = startPosition;
+	animatedSprite_.setPosition(startPosition);
 	// Initialize AnimationSprite
-	AnimatedSprite::initialize(animData, startingAnimNum);
+	animatedSprite_.initialize(animData, startingAnimNum);
 	// Create Animation States Mappings
 	/*for (unsigned int i = 0; i < animData.numOfAnimatons; ++i) {
 		animationStates_.emplace(animData.frameInfo[i].animName, i);

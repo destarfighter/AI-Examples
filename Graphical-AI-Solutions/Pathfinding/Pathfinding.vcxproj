@@ -148,6 +148,7 @@
     <ClCompile Include="AIController.cpp" />
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="LittleProblemSolver.cpp" />
+    <ClCompile Include="Maze.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
@@ -161,10 +162,12 @@
     <ClInclude Include="LittleProblemSolverStates.hpp" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="MapPackage.h" />
+    <ClInclude Include="Maze.h" />
     <ClInclude Include="ProblemCreator.h" />
     <ClInclude Include="ProblemPackage.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Pathfinder.h" />
+    <ClInclude Include="WorldObject.hpp" />
     <ClInclude Include="WorldState.hpp" />
     <ClInclude Include="WorldStateLocator.h" />
   </ItemGroup>

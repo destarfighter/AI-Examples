@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Interfaces">
-      <UniqueIdentifier>{c82d2d5e-4f13-40ac-896a-821ab0cb6428}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\AI">
       <UniqueIdentifier>{3c21768a-28cc-44e7-97bc-63cca364d7ab}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,15 @@
     <Filter Include="Source Files\World Objects">
       <UniqueIdentifier>{97817328-e780-4fd4-b8e2-2b5104c21e9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Primitive types">
+      <UniqueIdentifier>{c466b2a9-c113-488c-bbc2-541db2afcfd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{2b4638f1-700e-4a37-8a1d-d6d423d1452f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Primitive types">
+      <UniqueIdentifier>{a728419a-1dcc-4db8-bb29-82e94384eebf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIController.cpp">
@@ -42,20 +48,23 @@
     <ClCompile Include="Pathfinder.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="AnimatedSprite.cpp">
-      <Filter>Source Files\World Objects</Filter>
-    </ClCompile>
     <ClCompile Include="LittleProblemSolver.cpp">
       <Filter>Source Files\World Objects</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files\World Objects</Filter>
+    <ClCompile Include="WorldStateLocator.cpp">
+      <Filter>Source Files\Services</Filter>
     </ClCompile>
     <ClCompile Include="TileMap.cpp">
-      <Filter>Source Files\World Objects</Filter>
+      <Filter>Source Files\Primitive types</Filter>
     </ClCompile>
-    <ClCompile Include="WorldStateLocator.cpp">
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Source Files\Primitive types</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>Source Files\World Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,13 +92,7 @@
     <ClInclude Include="WorldState.hpp">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
-    <ClInclude Include="AnimatedSprite.h">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
     <ClInclude Include="LittleProblemSolver.h">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
       <Filter>Header Files\WorldObjects</Filter>
     </ClInclude>
     <ClInclude Include="LittleProblemSolverStates.hpp">
@@ -97,6 +100,18 @@
     </ClInclude>
     <ClInclude Include="WorldStateLocator.h">
       <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Header Files\Primitive types</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>Header Files\Primitive types</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObject.hpp">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>Header Files\WorldObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

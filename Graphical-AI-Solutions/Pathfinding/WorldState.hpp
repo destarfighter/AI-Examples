@@ -1,63 +1,54 @@
 #pragma once
-#include <SFML/Graphics/WorldObject.hpp>
 #include <map>
-
-using objectContainer = std::map<sf::WorldObjectIdentifier, std::shared_ptr<sf::WorldObject>>;
+#include "WorldObject.hpp"
 
 class WorldState {
 public:
 	virtual ~WorldState() { }
-	virtual void addNewObject(std::shared_ptr<sf::WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) = 0;
-	virtual void removeObject(sf::WorldObjectIdentifier id) = 0;
-	virtual std::shared_ptr<sf::WorldObject> getObject(sf::WorldObjectIdentifier id) = 0;
-	virtual objectContainer& getDrawables() = 0;
-	virtual objectContainer& getUpdatables() = 0;
+	virtual void addNewObject(WorldObjectIdentifier id, std::shared_ptr<WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) = 0;
+	virtual void removeObject(WorldObjectIdentifier id) = 0;
+	virtual std::shared_ptr<WorldObject> getObject(WorldObjectIdentifier id) = 0;
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getDrawables() = 0;
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getUpdatables() = 0;
 };
 
 class WorldStateProvider : public WorldState {
-
-	// TODO: redesign containers. remove code from SFML-Lib and design common container in project instead. 
-
-	// WorldObjects collection
-	objectContainer worldObjects_; // TODO: Remove list, and only keep drawables and updatables
-	// DrawableObjects collection
-	objectContainer drawableObjects_;
+	// Drawable collection
+	std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>> drawableObjects_;
 	// Updatable collection
-	objectContainer updatableObjects_;
+	std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>> updatableObjects_;
 
 public: // TODO: Make sure that a unique id is created / provided!
-	virtual void addNewObject(std::shared_ptr<sf::WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) {
-		if (isDrawable) drawableObjects_.emplace(obj_ptr->getIdentity(), obj_ptr);
-		if (isUpdatable) updatableObjects_.emplace(obj_ptr->getIdentity(), obj_ptr);
-		worldObjects_.emplace(obj_ptr->getIdentity(), obj_ptr);
+	virtual void addNewObject(WorldObjectIdentifier id, std::shared_ptr<WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) {
+		if (isDrawable) drawableObjects_.emplace(id, obj_ptr);
+		if (isUpdatable) updatableObjects_.emplace(id, obj_ptr);
 	};
 
-	virtual void removeObject(sf::WorldObjectIdentifier id) {
-		worldObjects_.erase(id);
+	virtual void removeObject(WorldObjectIdentifier id) {
 		drawableObjects_.erase(id);
 		updatableObjects_.erase(id);
 	};
 
-	virtual std::shared_ptr<sf::WorldObject> getObject(sf::WorldObjectIdentifier id) {
-		return worldObjects_[id];
+	virtual std::shared_ptr<WorldObject> getObject(WorldObjectIdentifier id) {
+		return std::make_shared<WorldObject>(WorldObject()); // TODO: Implement get function
 	};
 
-	virtual objectContainer& getDrawables() { return drawableObjects_; };
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getDrawables() { return drawableObjects_; };
 
-	virtual objectContainer& getUpdatables() { return updatableObjects_; }
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getUpdatables() { return updatableObjects_; }
 };
 
 class NullWorldState : public WorldState {
 public:
-	virtual void addNewObject(std::shared_ptr<sf::WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) {};
-	virtual void removeObject(sf::WorldObjectIdentifier id) {};
-	virtual std::shared_ptr<sf::WorldObject> getObject(sf::WorldObjectIdentifier id) { return nullptr; };
-	virtual objectContainer& getDrawables() { 
-		auto empty = objectContainer();
+	virtual void addNewObject(WorldObjectIdentifier id, std::shared_ptr<WorldObject> obj_ptr, bool isDrawable = false, bool isUpdatable = false) {};
+	virtual void removeObject(WorldObjectIdentifier id) {};
+	virtual std::shared_ptr<WorldObject> getObject(WorldObjectIdentifier id) { return nullptr; };
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getDrawables() {
+		auto empty = std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>();
 		return empty;
 	};
-	virtual objectContainer& getUpdatables() {
-		auto empty = objectContainer();
+	virtual std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>& getUpdatables() {
+		auto empty = std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>();
 		return empty;
 	};
 };

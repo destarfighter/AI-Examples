@@ -38,6 +38,10 @@ bool TileMap::load(const std::string& tilesetPath, MapData mapData) {
 	return true;
 }
 
+void TileMap::draw(sf::RenderWindow window) {
+	window.draw(*this);
+}
+
 void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	// apply the transform
 	states.transform *= getTransform();

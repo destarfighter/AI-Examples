@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "LittleProblemSolver.h"
 #include "MapPackage.h"
+#include "Maze.h"
 
 namespace Loader {
 
@@ -27,18 +28,15 @@ namespace Loader {
 		AnimData animData{ texture, frameInfo, 1 };
 
 		auto new_character = LittleProblemSolver();
-		new_character.initialize(animData, 0);
-		new_character.setPosition(0.f, 0.f);
+		new_character.initialize(animData, 0, sf::Vector2f(0.f, 0.f));
 
 		return new_character;
 	}
 
-	static TileMap CreateTileMap(MapData mapData) {
+	static Maze CreateMaze(MapData mapData) {
 		// create the tilemap from the level definition
-		TileMap new_map;
-		if (!new_map.load("Resources/Images/tileset.png", mapData))
-			throw std::exception("error while loading tileset!");
-
+		Maze new_map;
+		new_map.initialize("Resources/Images/tileset.png", mapData);
 		return new_map;
 	}
 

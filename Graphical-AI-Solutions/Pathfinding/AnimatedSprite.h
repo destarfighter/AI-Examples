@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "WorldObject.hpp"
 
 struct AnimFrameData {
 	// the offset of the first frame and the size of the images of an animation
@@ -19,7 +20,7 @@ struct AnimData {
 	unsigned int numOfAnimatons;
 };
 
-class AnimatedSprite : public sf::Sprite {
+class AnimatedSprite : public sf::Sprite, public WorldObject {
 
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData;
