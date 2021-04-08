@@ -59,7 +59,7 @@ class SolveProblemState : public LittleProblemSolverState {
 		// Initialize pathfinde
 		pathfinder_ = Pathfinder();
 		// Set Animation to thinking animation
-		owner_->changeAnim(0);
+		owner_->animatedSprite_.changeAnim(0);
 	};
 public:
 	SolveProblemState(ProblemDefinition problemDefinition) 

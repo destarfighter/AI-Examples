@@ -1,6 +1,7 @@
 #pragma once
 
-class AIController; // Forward declaration
+// Forward declaration
+class AIController; 
 
 class AIState {
 protected:

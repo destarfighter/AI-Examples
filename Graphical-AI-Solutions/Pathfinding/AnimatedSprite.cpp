@@ -1,57 +1,53 @@
 #include "AnimatedSprite.h"
 
-void AnimatedSprite::initialize(AnimData _animData, unsigned int _startingAnimNum) {
-		animData = _animData;
-		animNum = _startingAnimNum;
+void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
+		animData_ = animData;
+		animNum_ = startingAnimNum;
 		sf::Sprite::setPosition(0.f, 0.f);
-		sf::Sprite::setTexture(*animData.spriteSheet_ptr);
+		sf::Sprite::setTexture(*animData_.spriteSheet_ptr_);
 		// Set animation to default animation.
 		changeAnim(0);
 }
 
-void AnimatedSprite::update(float _deltaTime) {
+void AnimatedSprite::update(float deltaTime) {
 	// Update how long the current frame has been displayed
-	frameTime += _deltaTime;
+	frameTime_ += deltaTime;
 	// This check determines if it's time to change to the next frame.
-	if (frameTime > (1 / animFPS)) {
+	if (frameTime_ > (1 / animFPS_)) {
 		// The number of frames to increment is the integral result of
-		// frameTime / (1 / animFPS), which is frameTime * animFPS
-		frameNum += frameTime * animFPS;
+		// FrameTime / (1 / animFPS), which is frameTime * animFPS
+		frameNum_ += frameTime_ * animFPS_;
 		// Check if we advanced past the last frame, and must wrap.
-		if (frameNum >= animData.frameInfo[animNum].numFrames) {
+		if (frameNum_ >= animData_.frameInfo_[animNum_].numFrames_) {
 			// The modulus (%) makes sure we wrap correctly.
-			frameNum = frameNum % animData.frameInfo[animNum].numFrames;
+			frameNum_ = frameNum_ % animData_.frameInfo_[animNum_].numFrames_;
 		}
 
 		// Update the active sprite with current frame.
 		sf::Sprite::setTextureRect(sf::IntRect(
-			animData.frameInfo[animNum].animOffset.left 
-				+ animData.frameInfo[animNum].animOffset.width * frameNum,
-			animData.frameInfo[animNum].animOffset.top,
-			animData.frameInfo[animNum].animOffset.width,
-			animData.frameInfo[animNum].animOffset.height));
+			animData_.frameInfo_[animNum_].animOffset_.left 
+				+ animData_.frameInfo_[animNum_].animOffset_.width * frameNum_,
+			animData_.frameInfo_[animNum_].animOffset_.top,
+			animData_.frameInfo_[animNum_].animOffset_.width,
+			animData_.frameInfo_[animNum_].animOffset_.height));
 
-		// the modulus (%) makes sure we wrap FPS correctly. 
-		frameTime = std::fmod(frameTime, 1 / animFPS);
+		// The modulus (%) makes sure we wrap FPS correctly. 
+		frameTime_ = std::fmod(frameTime_, 1 / animFPS_);
 	}
 }
 
-void AnimatedSprite::changeAnim(unsigned int _num) {
-	if (_num > animData.numOfAnimatons)
+void AnimatedSprite::changeAnim(unsigned int num) {
+	if (num > animData_.numOfAnimatons_)
 		throw std::exception("Animation number out of range.");
-	animNum = _num;
+	animNum_ = num;
 	// The active animation is now at frame 0 and 0.0f time
-	frameNum = 0;
-	frameTime = 0.0f;
+	frameNum_ = 0;
+	frameTime_ = 0.0f;
 
 	// Set active sprite, which is just the starting frame.
 	sf::Sprite::setTextureRect(sf::IntRect(
-		animData.frameInfo[animNum].animOffset.left,
-		animData.frameInfo[animNum].animOffset.top,
-		animData.frameInfo[animNum].animOffset.width,
-		animData.frameInfo[animNum].animOffset.height));
-}
-
-void AnimatedSprite::setDrawOrder(int value) {
-	drawOrder = value;
+		animData_.frameInfo_[animNum_].animOffset_.left,
+		animData_.frameInfo_[animNum_].animOffset_.top,
+		animData_.frameInfo_[animNum_].animOffset_.width,
+		animData_.frameInfo_[animNum_].animOffset_.height));
 }

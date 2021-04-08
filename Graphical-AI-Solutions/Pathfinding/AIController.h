@@ -2,7 +2,8 @@
 #include "AIState.h"
 
 class AIController {
-	AIState state;
+private:
+	AIState state_;
 public:
 	void update(float deltaTime);
 	void setState(AIState newState);

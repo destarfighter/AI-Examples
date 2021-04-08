@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <vector>
 #include "MapPackage.h"
 
@@ -9,6 +9,7 @@ enum PathfinderStates {
 	IS_READY = 2
 };
 
+// TODO: clean way to reset Pathfinder? 
 class Pathfinder {
 private:
 	PathfinderStates state_ {IS_IDLE};
