@@ -1,5 +1,5 @@
 #pragma once
-#include "ProblemPackage.h"
+#include "../Data/ProblemPackage.h"
 
 namespace ProblemCreator {
 	static ProblemDefinition GenerateProblem() {

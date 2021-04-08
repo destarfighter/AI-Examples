@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "MapPackage.h"
+#include "../Data/MapPackage.h"
 
 class TileMap : public sf::Drawable, public sf::Transformable {
 private:

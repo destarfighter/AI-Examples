@@ -145,35 +145,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AIController.cpp" />
-    <ClCompile Include="AnimatedSprite.cpp" />
-    <ClCompile Include="LittleProblemSolver.cpp" />
-    <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="AI\AIController.cpp" />
+    <ClCompile Include="AI\Pathfinder.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pathfinder.cpp" />
-    <ClCompile Include="WorldStateLocator.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AIController.h" />
-    <ClInclude Include="AIState.h" />
-    <ClInclude Include="AnimatedSprite.h" />
-    <ClInclude Include="LittleProblemSolver.h" />
-    <ClInclude Include="LittleProblemSolverStates.hpp" />
-    <ClInclude Include="Loader.h" />
-    <ClInclude Include="MapPackage.h" />
-    <ClInclude Include="Maze.h" />
-    <ClInclude Include="ProblemCreator.h" />
-    <ClInclude Include="ProblemPackage.h" />
-    <ClInclude Include="TileMap.h" />
-    <ClInclude Include="Pathfinder.h" />
-    <ClInclude Include="WorldObject.hpp" />
-    <ClInclude Include="WorldState.hpp" />
-    <ClInclude Include="WorldStateLocator.h" />
+    <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp" />
+    <ClCompile Include="Semi-Primitives\TileMap.cpp" />
+    <ClCompile Include="Services\WorldStateLocator.cpp" />
+    <ClCompile Include="WorldObjects\LittleProblemSolver.cpp" />
+    <ClCompile Include="WorldObjects\Maze.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png" />
     <Image Include="Resources\Images\tileset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\AIController.h" />
+    <ClInclude Include="AI\AIState.h" />
+    <ClInclude Include="AI\Pathfinder.h" />
+    <ClInclude Include="Data\MapPackage.h" />
+    <ClInclude Include="Data\ProblemPackage.h" />
+    <ClInclude Include="Semi-Primitives\AnimatedSprite.h" />
+    <ClInclude Include="Semi-Primitives\TileMap.h" />
+    <ClInclude Include="Services\Loader.h" />
+    <ClInclude Include="Services\ProblemCreator.h" />
+    <ClInclude Include="Services\WorldState.hpp" />
+    <ClInclude Include="Services\WorldStateLocator.h" />
+    <ClInclude Include="WorldObjects\LittleProblemSolver.h" />
+    <ClInclude Include="WorldObjects\LittleProblemSolverStates.hpp" />
+    <ClInclude Include="WorldObjects\Maze.h" />
+    <ClInclude Include="WorldObjects\WorldObject.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,10 +1,9 @@
 #include <SFML/Graphics.hpp>
-#include "TileMap.h"
-#include "Loader.h"
-#include "LittleProblemSolver.h"
-#include "WorldState.hpp"
-#include "WorldStateLocator.h"
-#include "Maze.h"
+#include "Services/WorldState.hpp"
+#include "Services/WorldStateLocator.h"
+#include "Services/Loader.h"
+#include "WorldObjects/LittleProblemSolver.h"
+#include "WorldObjects/Maze.h"
 
 using namespace Loader;
 

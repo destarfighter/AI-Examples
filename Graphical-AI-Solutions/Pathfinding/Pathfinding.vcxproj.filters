@@ -14,105 +14,58 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\AI">
-      <UniqueIdentifier>{3c21768a-28cc-44e7-97bc-63cca364d7ab}</UniqueIdentifier>
+      <UniqueIdentifier>{3e416307-9662-4bdc-924f-5ba990f4c649}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\AI">
-      <UniqueIdentifier>{45ab274c-2a22-46e0-ab06-76d6848e2845}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Data">
-      <UniqueIdentifier>{e0fceb93-33bc-4da5-9b66-bf608beb6b14}</UniqueIdentifier>
+    <Filter Include="Header Files\Semi-Primitives">
+      <UniqueIdentifier>{1b6b5ea9-1171-40e7-b84e-0808da577662}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Services">
-      <UniqueIdentifier>{21289227-0a85-4697-bff9-a3b02ba14ac6}</UniqueIdentifier>
+      <UniqueIdentifier>{7647813e-f562-479b-b7a3-dd9fbdc4145d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{c29764d6-b138-4303-b6d6-e3e70ea5567d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\WorldObjects">
-      <UniqueIdentifier>{2fbc418f-c6e0-48b3-b7ed-911736789c9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\World Objects">
-      <UniqueIdentifier>{97817328-e780-4fd4-b8e2-2b5104c21e9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Primitive types">
-      <UniqueIdentifier>{c466b2a9-c113-488c-bbc2-541db2afcfd6}</UniqueIdentifier>
+      <UniqueIdentifier>{0116fec8-5d77-4dd0-8742-648a69fee88d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Services">
-      <UniqueIdentifier>{2b4638f1-700e-4a37-8a1d-d6d423d1452f}</UniqueIdentifier>
+      <UniqueIdentifier>{94350cbe-0f66-42ce-8aef-acba45017ccd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Primitive types">
-      <UniqueIdentifier>{a728419a-1dcc-4db8-bb29-82e94384eebf}</UniqueIdentifier>
+    <Filter Include="Source Files\WorldObjects">
+      <UniqueIdentifier>{a9cd04bb-65fc-46af-82f5-7d9e57e3f4c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{1c9a04eb-04eb-42dc-882a-09a34410be0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Semi-Primitives">
+      <UniqueIdentifier>{77877ecc-7ebd-47c0-b192-8f28396f7431}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AIController.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Pathfinder.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="LittleProblemSolver.cpp">
-      <Filter>Source Files\World Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldStateLocator.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>Source Files\Primitive types</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimatedSprite.cpp">
-      <Filter>Source Files\Primitive types</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Maze.cpp">
-      <Filter>Source Files\World Objects</Filter>
+    <ClCompile Include="Services\WorldStateLocator.cpp">
+      <Filter>Source Files\Services</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Loader.h">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="AIController.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="AIState.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Pathfinder.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="ProblemCreator.h">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="MapPackage.h">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="ProblemPackage.h">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldState.hpp">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="LittleProblemSolver.h">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LittleProblemSolverStates.hpp">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldStateLocator.h">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
-      <Filter>Header Files\Primitive types</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimatedSprite.h">
-      <Filter>Header Files\Primitive types</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldObject.hpp">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Maze.h">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
+    <ClCompile Include="WorldObjects\Maze.cpp">
+      <Filter>Source Files\WorldObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldObjects\LittleProblemSolver.cpp">
+      <Filter>Source Files\WorldObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AIController.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Pathfinder.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp">
+      <Filter>Source Files\Semi-Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Semi-Primitives\TileMap.cpp">
+      <Filter>Source Files\Semi-Primitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png">
@@ -121,5 +74,52 @@
     <Image Include="Resources\Images\tileset.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\AIController.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AIState.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Semi-Primitives\AnimatedSprite.h">
+      <Filter>Header Files\Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\LittleProblemSolver.h">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\LittleProblemSolverStates.hpp">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\Loader.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\MapPackage.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\Maze.h">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Pathfinder.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\ProblemCreator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ProblemPackage.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\WorldObject.hpp">
+      <Filter>Header Files\WorldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\WorldState.hpp">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\WorldStateLocator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Semi-Primitives\TileMap.h">
+      <Filter>Header Files\Semi-Primitives</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

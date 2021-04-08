@@ -1,6 +1,6 @@
 #pragma once
 #include <stdlib.h>
-#include "WorldState.hpp"
+#include "../Services/WorldState.hpp"
 
 class WorldStateLocator {
 public:

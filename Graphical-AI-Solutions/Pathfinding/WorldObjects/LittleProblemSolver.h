@@ -1,7 +1,8 @@
 #pragma once
-#include "AIController.h"
-#include "AnimatedSprite.h"
-#include "AIState.h"
+#include "../WorldObjects/WorldObject.hpp"
+#include "../AI/AIController.h"
+#include "../Semi-Primitives/AnimatedSprite.h"
+#include "../AI/AIState.h"
 
 class LittleProblemSolver : public WorldObject {
 private:

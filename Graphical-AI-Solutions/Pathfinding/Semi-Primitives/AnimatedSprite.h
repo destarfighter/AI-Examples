@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "WorldObject.hpp"
+#include "../WorldObjects/WorldObject.hpp"
 
 struct AnimFrameData {
 	// The offset of the first frame and the size of the images of an animation

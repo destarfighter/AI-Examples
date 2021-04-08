@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 #include <vector>
-#include "MapPackage.h"
+#include "../Data/MapPackage.h"
 
 enum PathfinderStates {
 	IS_IDLE = 0,

@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "WorldObject.hpp"
+#include "../WorldObjects/WorldObject.hpp"
 
 class WorldState {
 public:

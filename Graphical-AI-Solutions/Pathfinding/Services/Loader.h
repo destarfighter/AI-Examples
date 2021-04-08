@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "LittleProblemSolver.h"
-#include "MapPackage.h"
-#include "Maze.h"
+#include "../WorldObjects/LittleProblemSolver.h"
+#include "../Data/MapPackage.h"
+#include "../WorldObjects/Maze.h"
 
 namespace Loader {
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
-#include "MapPackage.h"
+#include "../Data/MapPackage.h"
 
 struct ProblemDefinition {
 	// The environment of a problem for a pathfinder

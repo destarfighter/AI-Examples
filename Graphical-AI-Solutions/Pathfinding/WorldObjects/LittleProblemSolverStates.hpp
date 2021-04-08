@@ -1,9 +1,9 @@
 #pragma once
 #include <future>
-#include "LittleProblemSolver.h"
-#include "Pathfinder.h"
-#include "MapPackage.h"
-#include "ProblemPackage.h"
+#include "../WorldObjects/LittleProblemSolver.h"
+#include "../AI/Pathfinder.h"
+#include "../Data/MapPackage.h"
+#include "../Data/ProblemPackage.h"
 
 class LittleProblemSolverState : public AIState {
 protected:
