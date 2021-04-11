@@ -7,7 +7,7 @@
 class ProblemSolver : public WorldObject{
 private:
 	// Controller for behavior state machine. 
-	AIController aiController_;
+	AIController* aiController_;
 	// Graphics component to draw an animated sprite from sprite-sheet
 	AnimatedSprite animatedSprite_;
 	// Mapping for animation states in the AnimatedSprite, name of animation - index of animation in AnimData

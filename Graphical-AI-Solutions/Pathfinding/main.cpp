@@ -22,10 +22,10 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	frameInfo.push_back(AnimFrameData{ sf::Rect<int>(6 * 48, 0, 48, 48), 5, "celebrate" });
 	AnimData animData{ texture, frameInfo, 1 };
 
-	auto new_character = new ProblemSolver();
-	new_character->initialize(animData, 0, sf::Vector2f(0.f, 0.f));
+	auto new_character = ProblemSolver();
+	new_character.initialize(animData, 0, sf::Vector2f(0.f, 0.f));
 
-	return std::make_shared<ProblemSolver>(*new_character);
+	return std::make_shared<ProblemSolver>(new_character);
 }
 
  std::shared_ptr<Maze> createEmptyMaze() {
@@ -34,10 +34,10 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	MapData mapData{ sf::Vector2u(32, 32), map, 9, 9 };
 
 	// Create maze
-	auto maze = new Maze();
-	maze->initialize("Resources/Images/tileset.png", mapData);
+	auto maze = Maze();
+	maze.initialize("Resources/Images/tileset.png", mapData);
 
-	return std::make_shared<Maze>(*maze);
+	return std::make_shared<Maze>(maze);
 }
 
 int main() {

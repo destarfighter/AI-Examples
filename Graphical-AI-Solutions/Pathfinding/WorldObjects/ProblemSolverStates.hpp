@@ -120,16 +120,19 @@ public:
 		// ask for new problem
 		auto problem = ProblemDefinition();
 
-		// find maze object in worlState - TODO: Test WorldStateLocator
+		// find maze object in worlState
 		WorldState* worldState = WorldStateLocator::getWorldState();
-		auto maze = worldState->getObject({ "maze", 0 });
+		auto mazeId = worldState->getObjectId("maze");
+		auto maze = worldState->getObject(mazeId);
 
 		// Cast to Maze and call setMapData with problem update	
 		std::static_pointer_cast<Maze>(maze)->setMapData(problem.mapData);
 
 		// Change state to Solve Problem State with 'problem' as argument. 
-		parent_->setState(&SolveProblemState(parent_, owner_, problem));
+		parent_->setState(new SolveProblemState(parent_, owner_, problem));
 	}
+	void enter() override {};
+	void exit() override {};
 
 	AskForProblemState(AIController* parent, ProblemSolver* owner)
 		: ProblemSolverState(parent, owner) {};

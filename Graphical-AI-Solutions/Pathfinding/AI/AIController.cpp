@@ -2,6 +2,7 @@
 
 void AIController::initialize(AIState* initialState) {
 	state_ = initialState;
+	state_->enter();
 }
 
 void AIController::update(float deltaTime) {

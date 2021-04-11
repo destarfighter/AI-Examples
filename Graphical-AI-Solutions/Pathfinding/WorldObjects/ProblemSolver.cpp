@@ -4,7 +4,7 @@ void ProblemSolver::update(float deltaTime) {
 	// Update Animation
 	animatedSprite_.update(deltaTime);
 	// Update character based on current state
-	aiController_.update(deltaTime);
+	aiController_->update(deltaTime);
 }
 
 void ProblemSolver::draw(sf::RenderWindow& window) {
@@ -12,10 +12,11 @@ void ProblemSolver::draw(sf::RenderWindow& window) {
 }
 
 ProblemSolver::ProblemSolver()
-	: aiController_(AIController())
+	: aiController_(new AIController())
 	, animatedSprite_(AnimatedSprite())
 	, animationStates_(std::map<std::string, int>())
-	, position_(sf::Vector2f()) { }
+	, position_(sf::Vector2f()) 
+{ }
 
 void ProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vector2f startPosition) {
 	// Set Starting positions of own object and animated sprite. 
@@ -28,5 +29,5 @@ void ProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, 
 		animationStates_.emplace(animData.frameInfo_[i].animName_, i);
 	}
 	// Set state for ai controller
-	aiController_.initialize(new AskForProblemState(&aiController_, this));
+	aiController_->initialize(new AskForProblemState(aiController_, this));
 }
