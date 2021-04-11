@@ -1,5 +1,12 @@
 #include "AnimatedSprite.h"
 
+AnimatedSprite::AnimatedSprite()
+: animData_(AnimData())
+, animNum_(0)
+, frameNum_(0)
+, frameTime_(0)
+, animFPS_(12.0f) { }
+
 void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
 		animData_ = animData;
 		animNum_ = startingAnimNum;

@@ -1,10 +1,21 @@
 #include "TileMap.h"
 
-bool TileMap::load(const std::string& tilesetPath, MapData mapData) {
+TileMap::TileMap()
+	: vertices_(sf::VertexArray())
+	, tileset_(sf::Texture()) { }
+
+bool TileMap::initialize(const std::string& tilesetPath, MapData mapData) {
 	// Load the tileset Texture
 	if (!tileset_.loadFromFile(tilesetPath))
 		return false;
 
+	setMapData(mapData);
+
+	return true;
+}
+
+void TileMap::setMapData(MapData mapData)
+{
 	// Resize the vertex array to fit the level size
 	vertices_.setPrimitiveType(sf::Quads);
 	vertices_.resize(mapData.width_ * mapData.height_ * 4);
@@ -14,7 +25,7 @@ bool TileMap::load(const std::string& tilesetPath, MapData mapData) {
 		for (unsigned int j = 0; j < mapData.height_; ++j) {
 			// Get the current tileNumber
 			int tileNumber = mapData.tiles_[i + j * mapData.width_];
-			
+
 			// Get a pointer to the current tile's quad
 			sf::Vertex* quad = &vertices_[(i + j * mapData.width_) * 4];
 
@@ -35,7 +46,6 @@ bool TileMap::load(const std::string& tilesetPath, MapData mapData) {
 			quad[3].texCoords = sf::Vector2f(tu * mapData.tileSize_.x, (tv + 1) * mapData.tileSize_.y);
 		}
 	}
-	return true;
 }
 
 void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const {

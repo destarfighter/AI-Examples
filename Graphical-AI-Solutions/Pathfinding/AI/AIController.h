@@ -3,9 +3,10 @@
 
 class AIController {
 private:
-	AIState state_;
+	AIState* state_;
 public:
+	void initialize(AIState* initialState);
 	void update(float deltaTime);
-	void setState(AIState newState);
+	void setState(AIState* newState);
 };
 

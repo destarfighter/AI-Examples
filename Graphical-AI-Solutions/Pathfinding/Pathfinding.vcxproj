@@ -151,7 +151,8 @@
     <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp" />
     <ClCompile Include="Semi-Primitives\TileMap.cpp" />
     <ClCompile Include="Services\WorldStateLocator.cpp" />
-    <ClCompile Include="WorldObjects\LittleProblemSolver.cpp" />
+    <ClCompile Include="WorldObject.cpp" />
+    <ClCompile Include="WorldObjects\ProblemSolver.cpp" />
     <ClCompile Include="WorldObjects\Maze.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,12 +167,10 @@
     <ClInclude Include="Data\ProblemPackage.h" />
     <ClInclude Include="Semi-Primitives\AnimatedSprite.h" />
     <ClInclude Include="Semi-Primitives\TileMap.h" />
-    <ClInclude Include="Services\Loader.h" />
-    <ClInclude Include="Services\ProblemCreator.h" />
     <ClInclude Include="Services\WorldState.hpp" />
     <ClInclude Include="Services\WorldStateLocator.h" />
-    <ClInclude Include="WorldObjects\LittleProblemSolver.h" />
-    <ClInclude Include="WorldObjects\LittleProblemSolverStates.hpp" />
+    <ClInclude Include="WorldObjects\ProblemSolver.h" />
+    <ClInclude Include="WorldObjects\ProblemSolverStates.hpp" />
     <ClInclude Include="WorldObjects\Maze.h" />
     <ClInclude Include="WorldObjects\WorldObject.hpp" />
   </ItemGroup>

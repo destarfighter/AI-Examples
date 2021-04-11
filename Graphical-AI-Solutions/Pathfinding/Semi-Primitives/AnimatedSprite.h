@@ -25,15 +25,16 @@ private:
 	// All of the animation data (includes ImageFile and FrameData)
 	AnimData animData_;
 	// The particular animation that is active
-	unsigned int animNum_{0};
+	unsigned int animNum_;
 	// The frame number of the active animation that's being displayed
-	unsigned int frameNum_{0};
+	unsigned int frameNum_;
 	// Anmount of time the current frame has been displayed
-	float frameTime_{0};
-	// The FPS the animation is running at (10 FPS by default)
-	float animFPS_{ 10.0f };
+	float frameTime_;
+	// The FPS the animation is running at (12 FPS by default)
+	float animFPS_;
 
 public:
+	AnimatedSprite();
 	virtual void initialize(AnimData animData, unsigned int startingAnimNum);
 	virtual void update(float deltaTime);
 	void changeAnim(unsigned int num);

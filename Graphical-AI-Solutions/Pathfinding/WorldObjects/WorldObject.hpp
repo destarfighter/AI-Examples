@@ -2,14 +2,19 @@
 #include <SFML/Graphics.hpp>
 
 struct WorldObjectIdentifier {
-	std::string uniqueName_;
+	std::string name_;
 	int priority_;
 
 	friend bool operator==(const WorldObjectIdentifier& lhs, const WorldObjectIdentifier& rhs) {
-		return lhs.uniqueName_ == rhs.uniqueName_;
+		return lhs.name_ == rhs.name_;
 	}
 	friend bool operator<(const WorldObjectIdentifier& lhs, const WorldObjectIdentifier& rhs) {
-		return lhs.priority_ < rhs.priority_;
+		if (rhs.priority_ == lhs.priority_) {
+			return lhs.name_ < rhs.name_;
+		}
+		else {
+			return lhs.priority_ < rhs.priority_;
+		}
 	}
 };
 

@@ -1,11 +1,17 @@
 #include "AIController.h"
 
-void AIController::update(float deltaTime) {
-	state_.update(deltaTime);
+void AIController::initialize(AIState* initialState) {
+	state_ = initialState;
 }
 
-void AIController::setState(AIState newState) {
-	state_.exit();
+void AIController::update(float deltaTime) {
+	state_->update(deltaTime);
+}
+
+void AIController::setState(AIState* newState) {
+	state_->exit();
+	delete state_;
+
 	state_ = newState;
-	state_.enter();
+	state_->enter();
 }

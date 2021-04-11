@@ -10,6 +10,8 @@ private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 public:
-	bool load(const std::string& tilesetPath, MapData mapData);
+	TileMap();
+	bool initialize(const std::string& tilesetPath, MapData mapData);
+	void setMapData(MapData mapData);
 };
 

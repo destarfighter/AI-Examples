@@ -40,18 +40,18 @@
     <Filter Include="Source Files\Semi-Primitives">
       <UniqueIdentifier>{77877ecc-7ebd-47c0-b192-8f28396f7431}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI\Problem Solver States">
+      <UniqueIdentifier>{2780231b-fda8-4b24-a70c-188e9928806a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Services\WorldStateLocator.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
     <ClCompile Include="WorldObjects\Maze.cpp">
       <Filter>Source Files\WorldObjects</Filter>
     </ClCompile>
-    <ClCompile Include="WorldObjects\LittleProblemSolver.cpp">
+    <ClCompile Include="WorldObjects\ProblemSolver.cpp">
       <Filter>Source Files\WorldObjects</Filter>
     </ClCompile>
     <ClCompile Include="AI\AIController.cpp">
@@ -65,6 +65,12 @@
     </ClCompile>
     <ClCompile Include="Semi-Primitives\TileMap.cpp">
       <Filter>Source Files\Semi-Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\WorldStateLocator.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldObject.cpp">
+      <Filter>Source Files\WorldObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,14 +91,8 @@
     <ClInclude Include="Semi-Primitives\AnimatedSprite.h">
       <Filter>Header Files\Semi-Primitives</Filter>
     </ClInclude>
-    <ClInclude Include="WorldObjects\LittleProblemSolver.h">
+    <ClInclude Include="WorldObjects\ProblemSolver.h">
       <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldObjects\LittleProblemSolverStates.hpp">
-      <Filter>Header Files\WorldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Services\Loader.h">
-      <Filter>Header Files\Services</Filter>
     </ClInclude>
     <ClInclude Include="Data\MapPackage.h">
       <Filter>Header Files\Data</Filter>
@@ -102,9 +102,6 @@
     </ClInclude>
     <ClInclude Include="AI\Pathfinder.h">
       <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Services\ProblemCreator.h">
-      <Filter>Header Files\Services</Filter>
     </ClInclude>
     <ClInclude Include="Data\ProblemPackage.h">
       <Filter>Header Files\Data</Filter>
@@ -120,6 +117,9 @@
     </ClInclude>
     <ClInclude Include="Semi-Primitives\TileMap.h">
       <Filter>Header Files\Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\ProblemSolverStates.hpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
