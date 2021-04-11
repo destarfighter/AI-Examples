@@ -28,6 +28,10 @@ class WorldStateProvider : public WorldState {
 	std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>> updatableObjects_;
 
 public:
+	~WorldStateProvider() {
+		// Iterate through all lists, freeing memory	
+	}
+
 	WorldStateProvider()
 		: drawableObjects_(std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>())
 		, updatableObjects_(std::map<WorldObjectIdentifier, std::shared_ptr<WorldObject>>())

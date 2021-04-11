@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "CrtCheckMemory.h"
 #include "../Pathfinding/Services/WorldState.hpp"
 #include "../Pathfinding/Services/WorldStateLocator.h"
 #include "../Pathfinding/WorldObjects/WorldObject.hpp"
+#include "DerivedFromWorldObject.h"
+#include <iostream>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -14,15 +17,16 @@ namespace PathfindingTest
 
 		TEST_METHOD(AddingObjectWithUniqueIdGetsAdded)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };	
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, true);
+				worldState->addNewObject(id1, obj1, true, true);
 			}
 
 			{
@@ -38,33 +42,35 @@ namespace PathfindingTest
 
 		TEST_METHOD(AddingObjectsWithDuplicateIdThrowsException)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, true);
+				worldState->addNewObject(id1, obj1, true, true);
 
 				// Add object with the same id again.
-				auto func = [id1, obj1, worldState] {worldState->addNewObject(*id1, obj1, true, true); };
+				auto func = [id1, obj1, worldState] {worldState->addNewObject(id1, obj1, true, true); };
 				Assert::ExpectException<std::exception>(func);
 			}
 		}
 
 		TEST_METHOD(AddingObjectToUpdatablesOnlyExistInUpdatables)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, false, true);
+				worldState->addNewObject(id1, obj1, false, true);
 			}
 
 			{
@@ -80,15 +86,16 @@ namespace PathfindingTest
 
 		TEST_METHOD(AddingObjectToDrawablesOnlyExistInDrawables)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, false);
+				worldState->addNewObject(id1, obj1, true, false);
 			}
 
 			{
@@ -104,15 +111,17 @@ namespace PathfindingTest
 
 		TEST_METHOD(removingWithCorrectIdRemovesItFromAllLists)
 		{ 
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
+			
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, true);
+				worldState->addNewObject(id1, obj1, true, true);
 			}
 
 			{
@@ -126,7 +135,7 @@ namespace PathfindingTest
 				Assert::AreEqual(count, static_cast<size_t>(1));
 			
 				// remove object
-				worldState->removeObject(*id1);
+				worldState->removeObject(id1);
 			}
 
 			{
@@ -138,22 +147,23 @@ namespace PathfindingTest
 				count = worldState->getUpdatables().size();
 				Assert::AreEqual(count, static_cast<size_t>(0));
 
-				Assert::IsFalse(worldState->findObjectById(*id1));
-				Assert::IsFalse(worldState->findObjectIdByName(id1->name_));
+				Assert::IsFalse(worldState->findObjectById(id1));
+				Assert::IsFalse(worldState->findObjectIdByName(id1.name_));
 			}
 		}
 
 		TEST_METHOD(removingWithWrongIdDoesNotChangeContainers)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, true);
+				worldState->addNewObject(id1, obj1, true, true);
 			}
 
 			{
@@ -180,36 +190,42 @@ namespace PathfindingTest
 				count = worldState->getUpdatables().size();
 				Assert::AreEqual(count, static_cast<size_t>(1));
 
-				Assert::IsTrue(worldState->findObjectById(*id1));
-				Assert::IsTrue(worldState->findObjectIdByName(id1->name_));
+				Assert::IsTrue(worldState->findObjectById(id1));
+				Assert::IsTrue(worldState->findObjectIdByName(id1.name_));
 			}
 		}
 
 		TEST_METHOD(gettingObjectShouldBeSameAsAddedObject)
 		{
-			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
-			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
+			WorldObject* obj1_ptr;
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
 			{
+				auto obj1 = std::make_shared<WorldObject>(WorldObject());
+				obj1_ptr = obj1.get();
+
 				// Initialize global WorldStateLocator Service
 				WorldStateProvider* worldState = new WorldStateProvider();
 				WorldStateLocator::provide(worldState);
 
 				// Add new obj1
-				worldState->addNewObject(*id1, obj1, true, true);
+				worldState->addNewObject(id1, obj1, true, true);
 			}
 
-			auto id2 = new WorldObjectIdentifier{ "obj2", 1 };
-			auto obj2 = std::make_shared<WorldObject>(*(new WorldObject()));
+			WorldObject* obj2_ptr;
+			auto id2 = WorldObjectIdentifier{ "obj2", 1 };
 			{
+				auto obj2 = std::make_shared<WorldObject>(WorldObject());
+				obj2_ptr = obj2.get();
+
 				auto worldState = WorldStateLocator::getWorldState();
 
 				// Get obj1 from worldState and make sure its the same object as previously added
-				auto newId1 = worldState->getObjectId(id1->name_);
+				auto newId1 = worldState->getObjectId(id1.name_);
 				auto newObj1 = worldState->getObject(newId1);
-				Assert::IsTrue(obj1.get() == newObj1.get());
+				Assert::IsTrue(obj1_ptr == newObj1.get());
 			
 				// Add new obj2
-				worldState->addNewObject(*id2, obj2, true, true);
+				worldState->addNewObject(id2, obj2, true, true);
 			}
 
 			// Get WorldState, check obj1 and obj2, add obj1_duplicate
@@ -217,18 +233,48 @@ namespace PathfindingTest
 				auto worldState = WorldStateLocator::getWorldState();
 
 				// Get obj1 from worldState and make sure its the same object as previously added
-				auto newId1 = worldState->getObjectId(id1->name_);
+				auto newId1 = worldState->getObjectId(id1.name_);
 				auto newObj1 = worldState->getObject(newId1);
-				Assert::IsTrue(obj1.get() == newObj1.get());
+				Assert::IsTrue(obj1_ptr == newObj1.get());
 
 				// Get obj2 from worldState and make sure its the same object as previously added
-				auto newId2 = worldState->getObjectId(id2->name_);
+				auto newId2 = worldState->getObjectId(id2.name_);
 				auto newObj2 = worldState->getObject(newId2);
-				Assert::IsTrue(obj2.get() == newObj2.get());
+				Assert::IsTrue(obj2_ptr == newObj2.get());
 			}
 		}
 
-		TEST_METHOD(getingDrawablesContainsAllDrawables)
+		TEST_METHOD(gettingDerivedObjectShouldBeSameAsAddedObject) {
+			DerivedFromWorldObject* obj1_ptr;
+			auto id1 = WorldObjectIdentifier{ "obj1", 0 };
+			{
+				auto obj1 = std::make_shared<DerivedFromWorldObject>(DerivedFromWorldObject(id1));
+				obj1_ptr = obj1.get();
+
+				// Initialize global WorldStateLocator Service
+				WorldStateProvider* worldState = new WorldStateProvider();
+				WorldStateLocator::provide(worldState);
+
+				// Add new obj1
+				worldState->addNewObject(id1, obj1, true, true);
+			}
+
+			{
+				auto worldState = WorldStateLocator::getWorldState();
+
+				// Get obj1 from worldState and make sure its the same object as previously added
+				auto newId1 = worldState->getObjectId(id1.name_);
+				auto newObj1 = worldState->getObject(newId1);
+
+				Assert::IsTrue(obj1_ptr == newObj1.get());
+
+				auto derivedClassId = std::static_pointer_cast<DerivedFromWorldObject>(newObj1)->getId();
+				Assert::AreEqual(id1.name_, derivedClassId.name_);
+				Assert::AreEqual(id1.priority_, derivedClassId.priority_);
+			}
+		}
+
+		TEST_METHOD(gettingDrawablesContainsAllDrawables)
 		{
 			auto id1 = new WorldObjectIdentifier{ "obj1", 0 };
 			auto obj1 = std::make_shared<WorldObject>(*(new WorldObject()));
@@ -480,7 +526,41 @@ namespace PathfindingTest
 
 		TEST_METHOD(releasingWorldStateDoesNotYieldMemoryLeaks)
 		{
-			Assert::IsTrue(false);
+			CrtCheckMemory check;
+			{ 
+				auto id1 = WorldObjectIdentifier{ "obj1", 0 };
+				auto id2 = WorldObjectIdentifier{ "obj2", 0 };
+				auto id3 = WorldObjectIdentifier{ "obj3", 0 };
+				auto id4 = WorldObjectIdentifier{ "obj4", 0 };
+
+				{
+					auto obj1 = std::make_shared<WorldObject>(WorldObject());
+					auto obj2 = std::make_shared<WorldObject>(WorldObject());
+					auto obj3 = std::make_shared<WorldObject>(WorldObject());
+					auto obj4 = std::make_shared<WorldObject>(WorldObject());
+
+					// Initialize global WorldStateLocator Service
+					WorldStateProvider* worldState = new WorldStateProvider();
+					WorldStateLocator::provide(worldState);
+
+					// Add all objects
+					worldState->addNewObject(id1, obj1, true, true);
+					worldState->addNewObject(id2, obj2, false, true);
+					worldState->addNewObject(id3, obj3, true, false);
+					worldState->addNewObject(id4, obj4, true, true);
+				}
+
+				{
+					auto worldState = WorldStateLocator::getWorldState();
+
+					// remove all objects
+					worldState->removeObject(id1);
+					worldState->removeObject(id2);
+					worldState->removeObject(id3);
+
+					delete worldState;
+				}
+			}
 		}
 	};
 }
