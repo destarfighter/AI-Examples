@@ -54,7 +54,7 @@ public:
 class FollowPathState : public ProblemSolverState {
 private:
 	// shortest path to destination
-	std::vector<unsigned int> path_;
+	std::vector<unsigned long int> path_;
 
 public:
 	void update(float deltaTime) override {
@@ -72,7 +72,7 @@ public:
 
 	};
 
-	FollowPathState(AIController* parent, ProblemSolver* owner, std::vector<unsigned int> path)
+	FollowPathState(AIController* parent, ProblemSolver* owner, std::vector<unsigned long int> path)
 		: ProblemSolverState(parent, owner)
 		, path_(path) {};
 };
@@ -83,7 +83,7 @@ public:
 class SolveProblemState : public ProblemSolverState {
 private:
 	Pathfinder pathfinder_;
-	std::future<std::vector<unsigned int>> path_;
+	std::future<std::vector<unsigned long int>> path_;
 	ProblemDefinition problemDefinition_;
 
 	ProblemDefinition generateRandomProblem(sf::Vector2f characterPosition, int mapHeight, int mapWidth, int amountOfWalls) {
@@ -111,24 +111,19 @@ private:
 
 public:
 	void update(float deltaTime) override {
-
-		/*if (pathfinder_.getState() == IS_IDLE)
-			path_ = std::async(&Pathfinder::findPath, &pathfinder_, owner_->position_, problemDefinition_.destination, problemDefinition_.mapData);
-
-		if (pathfinder_.getState() == IS_READY) {
-
+		if (path_._Is_ready()){
 			if (pathfinder_.getFoundPath()) {
-				parent_->setState(FollowPathState(path_.get()));
+				parent_->setState(new FollowPathState(parent_, owner_, path_.get()));
 			}
 			else {
-				parent_->setState(ShowResultState(false));
+				parent_->setState(new ShowResultState(parent_, owner_, false));
 			}
-		}*/
+		}
 	};
 
 	void enter() override {
 		// if no problem was provided generate a new problem
-		auto problem = generateRandomProblem(owner_->position_, MAP_WIDTH, MAP_HEIGHT, AMOUNT_OF_WALLS);
+		problemDefinition_ = generateRandomProblem(owner_->position_, MAP_WIDTH, MAP_HEIGHT, AMOUNT_OF_WALLS);
 
 		// find maze object in worlState
 		WorldState* worldState = WorldStateLocator::getWorldState();
@@ -136,7 +131,9 @@ public:
 		auto maze = worldState->getObject(mazeId);
 
 		// Cast to Maze and call setMapData with problem update	
-		std::static_pointer_cast<Maze>(maze)->setMapData(problem.mapData);
+		std::static_pointer_cast<Maze>(maze)->setMapData(problemDefinition_.mapData);
+
+		path_ = std::async(&Pathfinder::findPath, &pathfinder_, owner_->position_, problemDefinition_.destination, problemDefinition_.mapData);
 	};
 
 	SolveProblemState(AIController* parent, ProblemSolver* owner, ProblemDefinition problemDefinition = {})

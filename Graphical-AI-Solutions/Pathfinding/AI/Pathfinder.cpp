@@ -1,7 +1,7 @@
 #include "Pathfinder.h"
 
 
-bool Pathfinder::IsTraversable(const long int& prev_pos, const Step& step, MapData mapData)
+bool Pathfinder::IsTraversable(const long int prev_pos, const Step& step, MapData mapData)
 {
 	long int new_index = prev_pos + step.step_value;
 
@@ -21,14 +21,15 @@ bool Pathfinder::IsTraversable(const long int& prev_pos, const Step& step, MapDa
 		break;
 	}
 
-	if (mapData.tiles_[new_index] == 0) // TODO: change wall data
-	{
-		return false; // Node is not traversable
+	for (auto tile : MAP_WALLS) {
+		if (mapData.tiles_[new_index] == tile) {
+			return false; // Node is not traversable
+		}
 	}
-	return true;
+	return true; // Node is traversable
 }
 
-std::vector<unsigned long int> Pathfinder::MakePath(const long int& target, const long int& start, std::vector<long int>& prev)
+std::vector<unsigned long int> Pathfinder::MakePath(const long int target, const long int start, std::vector<long int>& prev)
 {
 	std::vector<unsigned long int> path;
 	long int current = target;
@@ -70,6 +71,7 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 		if (current.pos == target)
 		{
 			auto result = MakePath(current.pos, start, previous_positions);
+			foundPath_ = true;
 			return result; // found path from start to target
 		}
 
@@ -90,5 +92,6 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 			}
 		}
 	}
+	foundPath_ = false;
 	return std::vector<unsigned long int>(); // found no path from start to target
 }

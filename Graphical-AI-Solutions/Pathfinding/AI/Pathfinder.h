@@ -4,13 +4,9 @@
 #include <queue>
 #include <stack>
 #include <climits>
+#include <future>
 #include "../Data/MapPackage.h"
-
-enum PathfinderStates {
-	IS_IDLE = 0,
-	IS_WORKING = 1,
-	IS_READY = 2
-};
+#include "../config.h"
 
 enum Direction
 {
@@ -42,19 +38,15 @@ struct Position
 	}
 };
 
-// TODO: clean way to reset Pathfinder? 
-
 class Pathfinder {
 private:
-	PathfinderStates state_ {IS_IDLE};
 	bool foundPath_{ false };
 
-	bool IsTraversable(const long int& prev_pos, const Step& direction, MapData mapData);
-	std::vector<unsigned long int> MakePath(const long int& target, const long int& start, std::vector<long int>& prev);
+	bool IsTraversable(const long int prev_pos, const Step& direction, MapData mapData);
+	std::vector<unsigned long int> MakePath(const long int target, const long int start, std::vector<long int>& prev);
 
 public:
 	std::vector<unsigned long int> findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData);
-	const PathfinderStates getState() const noexcept { return state_; }
 	const bool getFoundPath() const noexcept { return foundPath_; }
 };
 
