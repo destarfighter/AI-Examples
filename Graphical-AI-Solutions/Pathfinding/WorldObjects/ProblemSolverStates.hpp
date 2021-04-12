@@ -6,6 +6,9 @@
 #include "../WorldObjects/Maze.h"
 #include "../AI/Pathfinder.h"
 #include "../AI/AIState.h"
+#include <stdlib.h>
+#include <time.h>
+#include "../config.h"
 
 // Forward Declaration of owner
 class ProblemSolver;
@@ -83,6 +86,29 @@ private:
 	std::future<std::vector<unsigned int>> path_;
 	ProblemDefinition problemDefinition_;
 
+	ProblemDefinition generateRandomProblem(sf::Vector2f characterPosition, int mapHeight, int mapWidth, int amountOfWalls) {
+		srand(time(NULL));
+
+		// create base n x n tile
+		std::vector<int> tileData(mapHeight * mapWidth, 0);
+
+		// randomize walls locations
+		for (unsigned int i = 0; i < amountOfWalls; ++i) {
+			tileData[rand() % tileData.size()] = 1;
+		}
+
+		// set random destination
+		int destination = rand() % tileData.size();
+		sf::Vector2u newDestination(destination % 9, destination / 9);
+		tileData[destination] = 3;
+
+		// set current position to be open
+		tileData[(characterPosition.y * mapWidth) + characterPosition.x] = 0;
+
+		auto newProblem = ProblemDefinition{ MapData { sf::Vector2u(32, 32), tileData, 9, 9 }, newDestination };
+		return newProblem;
+	}
+
 public:
 	void update(float deltaTime) override {
 
@@ -99,41 +125,21 @@ public:
 			}
 		}*/
 	};
+
 	void enter() override {
-		//// Initialize pathfinde
-		//pathfinder_ = Pathfinder();
-		//// Set Animation to thinking animation
-		//owner_->animatedSprite_.changeAnim(0);
-	};
-
-	SolveProblemState(AIController* parent, ProblemSolver* owner, ProblemDefinition problemDefinition)
-		: ProblemSolverState(parent, owner)
-		,problemDefinition_(problemDefinition) { };
-};
-
-/// <summary>
-/// A State where we ask for a new problem to be generated and pushed to the world. 
-/// </summary>
-class AskForProblemState : public ProblemSolverState {
-public:
-	virtual void update(float deltaTime) override {
-		// ask for new problem
-		auto problem = ProblemDefinition();
+		// if no problem was provided generate a new problem
+		auto problem = generateRandomProblem(owner_->position_, MAP_WIDTH, MAP_HEIGHT, AMOUNT_OF_WALLS);
 
 		// find maze object in worlState
 		WorldState* worldState = WorldStateLocator::getWorldState();
-		auto mazeId = worldState->getObjectId("maze");
+		auto mazeId = worldState->getObjectId(MAP_NAME);
 		auto maze = worldState->getObject(mazeId);
 
 		// Cast to Maze and call setMapData with problem update	
 		std::static_pointer_cast<Maze>(maze)->setMapData(problem.mapData);
+	};
 
-		// Change state to Solve Problem State with 'problem' as argument. 
-		parent_->setState(new SolveProblemState(parent_, owner_, problem));
-	}
-	void enter() override {};
-	void exit() override {};
-
-	AskForProblemState(AIController* parent, ProblemSolver* owner)
-		: ProblemSolverState(parent, owner) {};
+	SolveProblemState(AIController* parent, ProblemSolver* owner, ProblemDefinition problemDefinition = {})
+		: ProblemSolverState(parent, owner)
+		,problemDefinition_(problemDefinition) { };
 };

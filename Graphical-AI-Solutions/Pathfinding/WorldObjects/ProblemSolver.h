@@ -2,7 +2,9 @@
 #include "../WorldObjects/WorldObject.hpp"
 #include "../AI/AIController.h"
 #include "../Semi-Primitives/AnimatedSprite.h"
-#include "../WorldObjects/ProblemSolverStates.hpp"
+//#include "../WorldObjects/ProblemSolverStates.hpp"
+
+class AskForProblemState;
 
 class ProblemSolver : public WorldObject{
 private:
@@ -21,7 +23,6 @@ public:
 	virtual void draw(sf::RenderWindow& window) override;
 
 #pragma region friend-Classes "States"
-	friend class AskForProblemState;
 	friend class SolveProblemState;
 	friend class FollowPathState;
 	friend class ShowResultState;

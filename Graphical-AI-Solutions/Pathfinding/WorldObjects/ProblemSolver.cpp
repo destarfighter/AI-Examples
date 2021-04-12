@@ -1,4 +1,5 @@
 #include "ProblemSolver.h"
+#include "../WorldObjects/ProblemSolverStates.hpp"
 
 void ProblemSolver::update(float deltaTime) {
 	// Update Animation
@@ -15,7 +16,7 @@ ProblemSolver::ProblemSolver()
 	: aiController_(new AIController())
 	, animatedSprite_(AnimatedSprite())
 	, animationStates_(std::map<std::string, int>())
-	, position_(sf::Vector2f()) 
+	, position_(sf::Vector2f(0.f, 0.f)) 
 { }
 
 void ProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vector2f startPosition) {
@@ -29,5 +30,5 @@ void ProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, 
 		animationStates_.emplace(animData.frameInfo_[i].animName_, i);
 	}
 	// Set state for ai controller
-	aiController_->initialize(new AskForProblemState(aiController_, this));
+	aiController_->initialize(new SolveProblemState(aiController_, this));
 }

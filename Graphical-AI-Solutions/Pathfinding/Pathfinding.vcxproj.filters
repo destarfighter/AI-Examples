@@ -121,5 +121,8 @@
     <ClInclude Include="WorldObjects\ProblemSolverStates.hpp">
       <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

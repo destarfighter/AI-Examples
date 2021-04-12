@@ -163,6 +163,7 @@
     <ClInclude Include="AI\AIController.h" />
     <ClInclude Include="AI\AIState.h" />
     <ClInclude Include="AI\Pathfinder.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="Data\MapPackage.h" />
     <ClInclude Include="Data\ProblemPackage.h" />
     <ClInclude Include="Semi-Primitives\AnimatedSprite.h" />

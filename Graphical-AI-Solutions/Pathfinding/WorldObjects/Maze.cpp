@@ -6,7 +6,7 @@ Maze::Maze()
 
 void Maze::setMapData(MapData mapData) {
 	mapData_ = mapData;
-	//tileMap_.
+	tileMap_.setMapData(mapData);
 }
 
 void Maze::initialize(std::string tileSetPath, MapData mapData) {
