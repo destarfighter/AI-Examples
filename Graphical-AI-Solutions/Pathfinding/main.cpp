@@ -4,7 +4,7 @@
 #include "WorldObjects/ProblemSolver.h"
 #include "WorldObjects/Maze.h"
 #include "Data/MapPackage.h"
-#include "WorldObjects/ProblemSolverStates.hpp"
+#include "AI/ProblemSolverState.h"
 #include "config.h"
 
 std::shared_ptr<sf::Texture> loadTexture(std::string texturePath) {
@@ -20,6 +20,7 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	texture->setRepeated(false);
 
 	auto frameInfo = std::vector<AnimFrameData>();
+	frameInfo.push_back(WALKING_DOWN_ANIMATION);
 	frameInfo.push_back(CELEBRATE_ANIMATION);
 	AnimData animData{ texture, frameInfo, 1 };
 

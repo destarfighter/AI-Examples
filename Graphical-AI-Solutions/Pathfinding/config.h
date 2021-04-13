@@ -19,11 +19,12 @@
 #define AI_CHARACTER_NAME "problemSolver"
 #define CHARACTER_START_X 0
 #define CHARACTER_START_Y 0
+#define AI_MOVING_SPEED 20.f
 
 // AI-Character animation states
 #define THINKING_ANIMATION 0
 #define WALKING_UP_ANIMATION 0
-#define WALKING_DOWN_ANIMATION 0
+#define WALKING_DOWN_ANIMATION AnimFrameData{ sf::Rect<int>(0, 5 * 48, 48, 48), 5, "walking down" }
 #define WALKING_RIGHT_ANIMATION 0
 #define WALKING_LEFT_ANIMATION 0
 #define CELEBRATE_ANIMATION AnimFrameData{ sf::Rect<int>(6 * 48, 0, 48, 48), 5, "celebrate" }

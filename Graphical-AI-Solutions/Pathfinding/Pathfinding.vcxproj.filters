@@ -69,8 +69,17 @@
     <ClCompile Include="Services\WorldStateLocator.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
-    <ClCompile Include="WorldObject.cpp">
+    <ClCompile Include="WorldObjects\WorldObject.cpp">
       <Filter>Source Files\WorldObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\FindPathState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\FollowPathState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\ShowResultState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,11 +127,20 @@
     <ClInclude Include="Semi-Primitives\TileMap.h">
       <Filter>Header Files\Semi-Primitives</Filter>
     </ClInclude>
-    <ClInclude Include="WorldObjects\ProblemSolverStates.hpp">
-      <Filter>Header Files\AI\Problem Solver States</Filter>
-    </ClInclude>
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\FindPathState.h">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\FollowPathState.h">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\ProblemSolverState.h">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\ShowResultState.h">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

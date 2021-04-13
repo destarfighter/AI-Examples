@@ -52,7 +52,7 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 	std::vector<long int> previous_positions(mapData.height_ * mapData.width_, LONG_MAX);
 
 	long int target = (destination.y * mapData.width_) + destination.x;
-	long int start = (startPosition.y * mapData.width_) + startPosition.x;
+	long int start = ((startPosition.y / TILESIZE) * mapData.width_) + (startPosition.x / TILESIZE);
 
 	const Step movement_directions[] = { {UP, -static_cast<long int>(mapData.width_)}, {DOWN, mapData.width_}, {LEFT, -1}, {RIGHT, 1} };
 	const int step_cost = 1;

@@ -2,16 +2,13 @@
 #include "../WorldObjects/WorldObject.hpp"
 #include "../AI/AIController.h"
 #include "../Semi-Primitives/AnimatedSprite.h"
-//#include "../WorldObjects/ProblemSolverStates.hpp"
-
-class AskForProblemState;
 
 class ProblemSolver : public WorldObject{
 private:
 	// Controller for behavior state machine. 
 	AIController* aiController_;
 	// Graphics component to draw an animated sprite from sprite-sheet
-	AnimatedSprite animatedSprite_;
+	AnimatedSprite* animatedSprite_;
 	// Mapping for animation states in the AnimatedSprite, name of animation - index of animation in AnimData
 	std::map<std::string, int> animationStates_;
 	// Position of character
@@ -23,9 +20,10 @@ public:
 	virtual void draw(sf::RenderWindow& window) override;
 
 #pragma region friend-Classes "States"
-	friend class SolveProblemState;
+	friend class FindPathState;
 	friend class FollowPathState;
 	friend class ShowResultState;
+	friend class GetNewProblemState;
 #pragma endregion
 };
 
