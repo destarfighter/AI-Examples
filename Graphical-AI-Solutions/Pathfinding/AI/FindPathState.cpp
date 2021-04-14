@@ -1,25 +1,25 @@
 #include "FindPathState.h"
 
-ProblemDefinition FindPathState::generateRandomProblem(sf::Vector2f characterPosition, int mapHeight, int mapWidth, int amountOfWalls)
+ProblemDefinition FindPathState::generateRandomProblem(sf::Vector2f characterPosition)
 {
 	srand(time(NULL));
 	// create base n x n tile
-	std::vector<int> tileData(mapHeight * mapWidth, 0);
+	std::vector<int> tileData(MAP_HEIGHT * MAP_WIDTH, FLOOR_TILE_INDEX);
 	
 	// randomize walls locations
-	for (unsigned int i = 0; i < amountOfWalls; ++i) {
-		tileData[rand() % tileData.size()] = 1;
+	for (unsigned int i = 0; i < AMOUNT_OF_WALLS; ++i) {
+		tileData[rand() % tileData.size()] =  MAP_WALLS[rand() % MAP_WALLS.size()];
 	}
 	
-	// set random destination
+	// set random destination // TODO: seems like destination sometimes tries to place itself outside of map. 
 	int destination = rand() % tileData.size();
-	sf::Vector2u newDestination(destination % mapWidth, destination / mapWidth);
-	tileData[destination] = 3;
+	sf::Vector2u newDestination(destination % MAP_WIDTH, destination / MAP_WIDTH);
+	tileData[destination] = TARGET_TILE_INDEX;
 	
 	// set current position to be open
-	tileData[((characterPosition.y / TILESIZE) * mapWidth) + (characterPosition.x / TILESIZE)] = 0;
+	tileData[((characterPosition.y / TILESIZE) * MAP_WIDTH) + (characterPosition.x / TILESIZE)] = START_TILE_INDEX;
 	
-	auto newProblem = ProblemDefinition{ MapData { sf::Vector2u(32, 32), tileData, 9, 9 }, newDestination };
+	auto newProblem = ProblemDefinition{ MapData { sf::Vector2u(TILESIZE, TILESIZE), tileData, MAP_WIDTH, MAP_HEIGHT }, newDestination };
 	return newProblem;
 }
 
@@ -38,7 +38,7 @@ void FindPathState::update(float deltaTime) {
 
 void FindPathState::enter() {
 	// if no problem was provided generate a new problem
-	problemDefinition_ = generateRandomProblem(owner_->getPosition(), MAP_WIDTH, MAP_HEIGHT, AMOUNT_OF_WALLS);
+	problemDefinition_ = generateRandomProblem(owner_->getPosition());
 	
 	// find maze object in worlState
 	WorldState* worldState = WorldStateLocator::getWorldState();

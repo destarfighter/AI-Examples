@@ -21,7 +21,7 @@ private:
 	sf::Clock clock_;
 	int waitTime_;
 
-	ProblemDefinition generateRandomProblem(sf::Vector2f characterPosition, int mapHeight, int mapWidth, int amountOfWalls);
+	ProblemDefinition generateRandomProblem(sf::Vector2f characterPosition);
 
 public:
 	void update(float deltaTime) override;

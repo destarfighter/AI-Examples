@@ -33,7 +33,7 @@ private:
 	unsigned int frameNum_;
 	// Anmount of time the current frame has been displayed
 	float frameTime_;
-	// The FPS the animation is running at (12 FPS by default)
+	// The FPS the animation is running at
 	float animFPS_;
 
 public:

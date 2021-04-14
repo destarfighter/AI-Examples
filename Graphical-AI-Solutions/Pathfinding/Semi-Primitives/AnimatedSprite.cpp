@@ -6,7 +6,7 @@ AnimatedSprite::AnimatedSprite()
 , animNum_(0)
 , frameNum_(0)
 , frameTime_(0)
-, animFPS_(16.0f) { }
+, animFPS_(FRAME_RATE) { }
 
 void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
 		animData_ = animData;

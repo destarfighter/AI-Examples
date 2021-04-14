@@ -9,7 +9,13 @@ void ShowResultState::update(float deltaTime) {
 
 void ShowResultState::enter() {
 	// Set Animation "Celebrate" or "Cry"
-	auto animIndex = owner_->getAnimationByName(CELEBRATE_ANIMATION.animName_);
+	int animIndex = 0;
+	if (foundPath_) {
+		animIndex = owner_->getAnimationByName(CELEBRATE_ANIMATION.animName_);
+	}
+	else {
+		animIndex = owner_->getAnimationByName(CRY_ANIMATION.animName_);
+	}
 	owner_->changeAnim(animIndex);
 	// Start clock
 	clock_.restart();

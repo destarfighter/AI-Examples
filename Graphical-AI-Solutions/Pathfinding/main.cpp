@@ -26,6 +26,7 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	frameInfo.push_back(WALKING_LEFT_ANIMATION);
 	frameInfo.push_back(WALKING_RIGHT_ANIMATION);
 	frameInfo.push_back(CELEBRATE_ANIMATION);
+	frameInfo.push_back(CRY_ANIMATION);
 	AnimData animData{ texture, frameInfo, frameInfo.size() };
 
 	auto newProblemSolver_ptr = std::make_shared<ProblemSolver>(ProblemSolver());
