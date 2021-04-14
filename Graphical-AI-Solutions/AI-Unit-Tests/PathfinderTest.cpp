@@ -89,17 +89,18 @@ namespace PathfindingTest
 			auto result = pathfinder.findPath(startPosition, destination, map);
 
 			// Check result
-			Assert::AreEqual(result.size(), static_cast<size_t>(10));
-			Assert::AreEqual(result[0], static_cast<unsigned long>(10));
-			Assert::AreEqual(result[1], static_cast<unsigned long>(15));
-			Assert::AreEqual(result[2], static_cast<unsigned long>(20));
-			Assert::AreEqual(result[3], static_cast<unsigned long>(21));
-			Assert::AreEqual(result[4], static_cast<unsigned long>(22));
-			Assert::AreEqual(result[5], static_cast<unsigned long>(23));
-			Assert::AreEqual(result[6], static_cast<unsigned long>(24));
-			Assert::AreEqual(result[7], static_cast<unsigned long>(19));
-			Assert::AreEqual(result[8], static_cast<unsigned long>(14));
-			Assert::AreEqual(result[9], static_cast<unsigned long>(9));
+			Assert::AreEqual(result.size(), static_cast<size_t>(11));
+			Assert::AreEqual(result[0], static_cast<unsigned long>(5));
+			Assert::AreEqual(result[1], static_cast<unsigned long>(10));
+			Assert::AreEqual(result[2], static_cast<unsigned long>(15));
+			Assert::AreEqual(result[3], static_cast<unsigned long>(20));
+			Assert::AreEqual(result[4], static_cast<unsigned long>(21));
+			Assert::AreEqual(result[5], static_cast<unsigned long>(22));
+			Assert::AreEqual(result[6], static_cast<unsigned long>(23));
+			Assert::AreEqual(result[7], static_cast<unsigned long>(24));
+			Assert::AreEqual(result[8], static_cast<unsigned long>(19));
+			Assert::AreEqual(result[9], static_cast<unsigned long>(14));
+			Assert::AreEqual(result[10], static_cast<unsigned long>(9));
 		}
 	};
 }

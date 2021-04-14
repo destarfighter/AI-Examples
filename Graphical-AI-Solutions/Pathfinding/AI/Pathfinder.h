@@ -25,10 +25,8 @@ struct Position
 {
 	// describes a point in a 2D-grid of "FindPath"- nMapWidth and nMapHeight
 	long int pos;  
-	// tentative distance from a source to pos. 
+	// tentative distance from a source to pos. and manhattan distance from position to target
 	long int dist; 
-	// distance from current position to target.
-	long int h_value;
 
 	friend bool operator<(const Position& lhs, const Position& rhs)
 	{
@@ -42,8 +40,9 @@ class Pathfinder {
 private:
 	bool foundPath_{ false };
 
-	bool IsTraversable(const long int prev_pos, const Step& direction, MapData mapData);
-	std::vector<unsigned long int> MakePath(const long int target, const long int start, std::vector<long int>& prev);
+	bool isTraversable(const long int prev_pos, const Step& direction, MapData mapData);
+	std::vector<unsigned long int> makePath(const long int target, const long int start, std::vector<long int>& prev);
+	long int manhattanDistance(long int position, long int target);
 
 public:
 	std::vector<unsigned long int> findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData);

@@ -1,7 +1,7 @@
 #include "Pathfinder.h"
 
 
-bool Pathfinder::IsTraversable(const long int prev_pos, const Step& step, MapData mapData)
+bool Pathfinder::isTraversable(const long int prev_pos, const Step& step, MapData mapData)
 {
 	long int new_index = prev_pos + step.step_value;
 
@@ -29,7 +29,7 @@ bool Pathfinder::IsTraversable(const long int prev_pos, const Step& step, MapDat
 	return true; // Node is traversable
 }
 
-std::vector<unsigned long int> Pathfinder::MakePath(const long int target, const long int start, std::vector<long int>& prev)
+std::vector<unsigned long int> Pathfinder::makePath(const long int target, const long int start, std::vector<long int>& prev)
 {
 	std::vector<unsigned long int> path;
 	long int current = target;
@@ -45,6 +45,18 @@ std::vector<unsigned long int> Pathfinder::MakePath(const long int target, const
 	return path;
 }
 
+long int Pathfinder::manhattanDistance(long int position, long int target)
+{
+	// convert values to coordinates
+	int positionX = (position % MAP_WIDTH) * TILESIZE;
+	int positionY = (position / MAP_WIDTH) * TILESIZE;
+	int targetX = (target % MAP_WIDTH)* TILESIZE;
+	int targetY = (target / MAP_WIDTH) * TILESIZE;
+
+	// subtract position from target and return absolute value of distance
+	return std::abs(targetX - positionX) + std::abs(targetY - positionY);
+}
+
 std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData) {
 	
 	std::priority_queue<Position> open_pos_que;
@@ -57,8 +69,10 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 	const Step movement_directions[] = { {UP, -static_cast<long int>(mapData.width_)}, {DOWN, mapData.width_}, {LEFT, -1}, {RIGHT, 1} };
 	const int step_cost = 1;
 
-	open_pos_que.push({ start , 0 });
-	distances_from_start[start] = 0;
+	// Start position need manhattan distance
+	auto start_manhattan = manhattanDistance(start, target);
+	open_pos_que.push({ start , start_manhattan });
+	distances_from_start[start] = start_manhattan;
 
 	while (!open_pos_que.empty())
 	{
@@ -70,19 +84,20 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 
 		if (current.pos == target)
 		{
-			auto result = MakePath(current.pos, start, previous_positions);
+			auto result = makePath(current.pos, start, previous_positions);
 			foundPath_ = true;
 			return result; // found path from start to target
 		}
 
 		for (Step step : movement_directions)
 		{
-			if (!IsTraversable(current.pos, step, mapData)) 
+			if (!isTraversable(current.pos, step, mapData)) 
 				continue; // Node is not traversable
 
 			long int new_position = current.pos + step.step_value;
 
-			long int new_dist = distances_from_start[current.pos] + step_cost; // add 'h' here where h is the distance between current node to target
+			long int new_dist = distances_from_start[current.pos] + step_cost
+				+ manhattanDistance(new_position, target);
 
 			if (new_dist < distances_from_start[new_position])
 			{
