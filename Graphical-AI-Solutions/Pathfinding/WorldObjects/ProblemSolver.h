@@ -9,8 +9,6 @@ private:
 	AIController* aiController_;
 	// Graphics component to draw an animated sprite from sprite-sheet
 	AnimatedSprite* animatedSprite_;
-	// Mapping for animation states in the AnimatedSprite, name of animation - index of animation in AnimData
-	std::map<std::string, int> animationStates_;
 	// Position of character
 	sf::Vector2f position_;
 public:

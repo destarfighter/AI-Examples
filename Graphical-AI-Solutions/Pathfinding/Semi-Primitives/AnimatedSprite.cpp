@@ -1,11 +1,12 @@
 #include "AnimatedSprite.h"
 
 AnimatedSprite::AnimatedSprite()
-: animData_(AnimData())
+: animationStates_(std::map<std::string, int>())
+, animData_(AnimData())
 , animNum_(0)
 , frameNum_(0)
 , frameTime_(0)
-, animFPS_(12.0f) { }
+, animFPS_(16.0f) { }
 
 void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
 		animData_ = animData;
@@ -14,6 +15,11 @@ void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum)
 		sf::Sprite::setTexture(*animData_.spriteSheet_ptr_);
 		// Set animation to default animation.
 		changeAnim(0);
+
+		// Create Animation States Mappings
+		for (unsigned int i = 0; i < animData.numOfAnimatons_; ++i) {
+			animationStates_.emplace(animData.frameInfo_[i].animName_, i);
+		}
 }
 
 void AnimatedSprite::update(float deltaTime) {
@@ -57,4 +63,18 @@ void AnimatedSprite::changeAnim(unsigned int num) {
 		animData_.frameInfo_[animNum_].animOffset_.top,
 		animData_.frameInfo_[animNum_].animOffset_.width,
 		animData_.frameInfo_[animNum_].animOffset_.height));
+
+	// Update Animation origin based on TileSize
+	int xOffset = std::abs(TILESIZE - animData_.frameInfo_[animNum_].animOffset_.width);
+	int yOffset = std::abs(TILESIZE - animData_.frameInfo_[animNum_].animOffset_.height);
+	// apply to origin
+	sf::Sprite::setOrigin(xOffset, yOffset);
+}
+
+int AnimatedSprite::getAnimationByName(std::string animationName)
+{
+	if (animationStates_.find(animationName) != animationStates_.end()) {
+		return animationStates_[animationName];
+	}
+	throw std::exception("There is no key 'name' in animationStates");
 }

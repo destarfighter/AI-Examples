@@ -20,6 +20,7 @@ private:
 	float getVectorDistance(sf::Vector2f characterPosition, sf::Vector2u targetPosition);
 	sf::Vector2i getDirection(sf::Vector2u characterPosition, sf::Vector2u targetPosition);
 	sf::Vector2u convertTileToVector(unsigned long int tileIndex, int mapWidth);
+	void setAnimationDirection(sf::Vector2i direction);
 
 public:
 	void update(float deltaTime) override;

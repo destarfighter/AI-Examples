@@ -2,17 +2,21 @@
 #include "FindPathState.h"
 
 void ShowResultState::update(float deltaTime) {
-	parent_->setState(new FindPathState(parent_, owner_));
+	if (clock_.getElapsedTime().asSeconds() > waitTime_) {
+		parent_->setState(new FindPathState(parent_, owner_));
+	}
 };
 
 void ShowResultState::enter() {
 	// Set Animation "Celebrate" or "Cry"
-};
-
-void ShowResultState::exit() {
-
+	auto animIndex = owner_->getAnimationByName(CELEBRATE_ANIMATION.animName_);
+	owner_->changeAnim(animIndex);
+	// Start clock
+	clock_.restart();
 };
 
 ShowResultState::ShowResultState(AIController* parent, AnimatedSprite* owner, bool foundPath)
 	: ProblemSolverState(parent, owner)
-	, foundPath_(foundPath) {};
+	, foundPath_(foundPath) 
+	, clock_(sf::Clock())
+	, waitTime_(3) {};

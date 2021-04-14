@@ -72,13 +72,13 @@
     <ClCompile Include="WorldObjects\WorldObject.cpp">
       <Filter>Source Files\WorldObjects</Filter>
     </ClCompile>
-    <ClCompile Include="AI\FindPathState.cpp">
-      <Filter>Header Files\AI\Problem Solver States</Filter>
-    </ClCompile>
     <ClCompile Include="AI\FollowPathState.cpp">
       <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClCompile>
     <ClCompile Include="AI\ShowResultState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\FindPathState.cpp">
       <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClCompile>
   </ItemGroup>

@@ -25,11 +25,13 @@ ProblemDefinition FindPathState::generateRandomProblem(sf::Vector2f characterPos
 
 void FindPathState::update(float deltaTime) {
 	if (path_._Is_ready()) {
-		if (pathfinder_.getFoundPath()) {
-			parent_->setState(new FollowPathState(parent_, owner_, path_.get()));
-		}
-		else {
-			parent_->setState(new ShowResultState(parent_, owner_, false));
+		if (clock_.getElapsedTime().asSeconds() > waitTime_) {
+			if (pathfinder_.getFoundPath()) {
+				parent_->setState(new FollowPathState(parent_, owner_, path_.get()));
+			}
+			else {
+				parent_->setState(new ShowResultState(parent_, owner_, false));
+			}
 		}
 	}
 }
@@ -47,8 +49,17 @@ void FindPathState::enter() {
 	std::static_pointer_cast<Maze>(maze)->setMapData(problemDefinition_.mapData);
 
 	path_ = std::async(&Pathfinder::findPath, &pathfinder_, owner_->getPosition(), problemDefinition_.destination, problemDefinition_.mapData);
+
+	// Set thinking animation
+	auto animIndex = owner_->getAnimationByName(IDLE_ANIMATION.animName_);
+	owner_->changeAnim(animIndex);
+
+	// Start clock
+	clock_.restart();
 }
 
 FindPathState::FindPathState(AIController* parent, AnimatedSprite* owner, ProblemDefinition problemDefinition)
 	: ProblemSolverState(parent, owner)
-	, problemDefinition_(problemDefinition) { }
+	, problemDefinition_(problemDefinition)
+	, clock_(sf::Clock())
+	, waitTime_(2) { }

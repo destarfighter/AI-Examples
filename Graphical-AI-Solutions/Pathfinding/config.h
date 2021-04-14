@@ -19,13 +19,14 @@
 #define AI_CHARACTER_NAME "problemSolver"
 #define CHARACTER_START_X 0
 #define CHARACTER_START_Y 0
-#define AI_MOVING_SPEED 20.f
+#define AI_MOVING_SPEED 35.f
 
 // AI-Character animation states
-#define THINKING_ANIMATION 0
-#define WALKING_UP_ANIMATION 0
-#define WALKING_DOWN_ANIMATION AnimFrameData{ sf::Rect<int>(0, 5 * 48, 48, 48), 5, "walking down" }
-#define WALKING_RIGHT_ANIMATION 0
-#define WALKING_LEFT_ANIMATION 0
-#define CELEBRATE_ANIMATION AnimFrameData{ sf::Rect<int>(6 * 48, 0, 48, 48), 5, "celebrate" }
-#define CRY_ANIMATION 0
+#define IDLE_ANIMATION AnimFrameData{ sf::Rect<int>(0, 0, 32, 32), 5, "idle" }
+#define WALKING_DOWN_ANIMATION AnimFrameData{ sf::Rect<int>(0, 128, 32, 32), 5, "walking down" }
+#define WALKING_RIGHT_ANIMATION AnimFrameData{ sf::Rect<int>(0, 160, 32, 32), 5, "walking right" }
+#define WALKING_LEFT_ANIMATION AnimFrameData{ sf::Rect<int>(0, 192, 32, 32), 5, "walking left" }
+#define WALKING_UP_ANIMATION AnimFrameData{ sf::Rect<int>(0, 224, 32, 32), 5, "walking up" }
+#define THINKING_ANIMATION AnimFrameData{ sf::Rect<int>(0, 0, 32, 32), 5, "thinking" }
+#define CELEBRATE_ANIMATION AnimFrameData{ sf::Rect<int>(160, 0, 32, 48), 5, "celebrate" }
+#define CRY_ANIMATION AnimFrameData{ sf::Rect<int>(0, 0, 32, 32), 5, "cry" }

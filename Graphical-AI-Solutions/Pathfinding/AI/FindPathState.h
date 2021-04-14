@@ -18,6 +18,8 @@ private:
 	Pathfinder pathfinder_;
 	std::future<std::vector<unsigned long int>> path_;
 	ProblemDefinition problemDefinition_;
+	sf::Clock clock_;
+	int waitTime_;
 
 	ProblemDefinition generateRandomProblem(sf::Vector2f characterPosition, int mapHeight, int mapWidth, int amountOfWalls);
 

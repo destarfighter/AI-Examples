@@ -20,6 +20,20 @@ sf::Vector2u FollowPathState::convertTileToVector(unsigned long int tileIndex, i
 	return sf::Vector2u((tileIndex % mapWidth) * TILESIZE, (tileIndex / mapWidth) * TILESIZE);
 }
 
+void FollowPathState::setAnimationDirection(sf::Vector2i direction) {
+	// set new animation
+	int animIndex = 0;
+	if (direction_.x > 0)
+		animIndex = owner_->getAnimationByName(WALKING_RIGHT_ANIMATION.animName_);
+	else if (direction_.x < 0)
+		animIndex = owner_->getAnimationByName(WALKING_LEFT_ANIMATION.animName_);
+	else if (direction_.y > 0)
+		animIndex = owner_->getAnimationByName(WALKING_DOWN_ANIMATION.animName_);
+	else if (direction_.y < 0)
+		animIndex = owner_->getAnimationByName(WALKING_UP_ANIMATION.animName_);
+	owner_->changeAnim(animIndex);
+}
+
 	void FollowPathState::update(float deltaTime) {
 		// move character
 		owner_->move(direction_.x * movingSpeed_ * deltaTime,
@@ -44,7 +58,7 @@ sf::Vector2u FollowPathState::convertTileToVector(unsigned long int tileIndex, i
 			if (newDirection != direction_) {
 				// Set new direction
 				direction_ = newDirection;
-				// set new animation
+				setAnimationDirection(direction_);
 			}
 		}
 	};
@@ -52,6 +66,7 @@ sf::Vector2u FollowPathState::convertTileToVector(unsigned long int tileIndex, i
 	void FollowPathState::enter() {
 		direction_ = getDirection(static_cast<sf::Vector2u>(owner_->getPosition()),
 			convertTileToVector(path_[currentTargetIndex_], MAP_WIDTH));
+		setAnimationDirection(direction_);
 	};
 
 	FollowPathState::FollowPathState(AIController* parent, AnimatedSprite* owner, std::vector<unsigned long int> path)

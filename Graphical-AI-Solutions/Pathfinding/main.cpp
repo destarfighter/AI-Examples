@@ -20,9 +20,13 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	texture->setRepeated(false);
 
 	auto frameInfo = std::vector<AnimFrameData>();
+	frameInfo.push_back(IDLE_ANIMATION);
 	frameInfo.push_back(WALKING_DOWN_ANIMATION);
+	frameInfo.push_back(WALKING_UP_ANIMATION);
+	frameInfo.push_back(WALKING_LEFT_ANIMATION);
+	frameInfo.push_back(WALKING_RIGHT_ANIMATION);
 	frameInfo.push_back(CELEBRATE_ANIMATION);
-	AnimData animData{ texture, frameInfo, 1 };
+	AnimData animData{ texture, frameInfo, frameInfo.size() };
 
 	auto newProblemSolver_ptr = std::make_shared<ProblemSolver>(ProblemSolver());
 	newProblemSolver_ptr->initialize(animData, 0, sf::Vector2f(CHARACTER_START_X, CHARACTER_START_Y));
