@@ -81,6 +81,18 @@
     <ClCompile Include="AI\FindPathState.cpp">
       <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClCompile>
+    <ClCompile Include="WorldObjects\PathAnimater.cpp">
+      <Filter>Source Files\WorldObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\DrawPathProcessState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClCompile>
+    <ClCompile Include="AIState.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="ProblemSolverState.cpp">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png">
@@ -141,6 +153,12 @@
     </ClInclude>
     <ClInclude Include="AI\ShowResultState.h">
       <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\DrawPathProcessState.h">
+      <Filter>Header Files\AI\Problem Solver States</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldObjects\PathAnimater.h">
+      <Filter>Header Files\WorldObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -77,7 +77,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Pathfinding\Services;$(SolutionDir)Pathfinding\WorldObjects;$(SolutionDir)PAthfinding\AI;$(SolutionDir)Pathfinding;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Pathfinding\Services;$(SolutionDir)Pathfinding\WorldObjects;$(SolutionDir)Pathfinding\AI;$(SolutionDir)Pathfinding\Semi-Primitives;$(SolutionDir)Pathfinding;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -105,7 +105,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.5.1\lib;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);$(SolutionDir)Pathfinding\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>WorldStateLocator.obj;WorldObject.obj;Pathfinder.obj;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WorldStateLocator.obj;WorldObject.obj;Pathfinder.obj;ProblemSolver.obj;PathAnimater.obj;Maze.obj;AnimatedSprite.obj;AIState;AIController;TileMap.obj;DrawPathProcessState.obj;FindPathState.obj;FollowPathState.obj;ShowResultState.obj;ProblemSolverState.obj;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="AI-Unit-Tests.cpp" />
     <ClCompile Include="DerivedFromWorldObject.cpp" />
+    <ClCompile Include="MemoryTests.cpp" />
     <ClCompile Include="PathfinderTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

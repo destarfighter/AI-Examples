@@ -17,13 +17,15 @@ void ProblemSolver::draw(sf::RenderWindow& window) {
 
 ProblemSolver::ProblemSolver()
 	: aiController_(new AIController())
-	, animatedSprite_(new AnimatedSprite())
-	, position_(sf::Vector2f(0.f, 0.f)) 
-{ }
+	, animatedSprite_(new AnimatedSprite()) { }
+
+ProblemSolver::~ProblemSolver() {
+	delete animatedSprite_;
+	delete aiController_;
+}
 
 void ProblemSolver::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vector2f startPosition) {
-	// Set Starting positions of own object and animated sprite. 
-	position_ = startPosition;
+	// Set Starting positions of animated sprite. 
 	animatedSprite_->setPosition(startPosition);
 	// Initialize AnimationSprite
 	animatedSprite_->initialize(animData, startingAnimNum);

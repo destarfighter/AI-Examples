@@ -1,7 +1,8 @@
 #include "AnimatedSprite.h"
 
 AnimatedSprite::AnimatedSprite()
-: animationStates_(std::map<std::string, int>())
+: sf::Sprite()
+, animationStates_(std::map<std::string, int>())
 , animData_(AnimData())
 , animNum_(0)
 , frameNum_(0)
@@ -11,7 +12,6 @@ AnimatedSprite::AnimatedSprite()
 void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
 		animData_ = animData;
 		animNum_ = startingAnimNum;
-		sf::Sprite::setPosition(0.f, 0.f);
 		sf::Sprite::setTexture(*animData_.spriteSheet_ptr_);
 		// Set animation to default animation.
 		changeAnim(0);

@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../WorldObjects/WorldObject.hpp"
-#include "../Data/MapPackage.h"
 #include "../Semi-Primitives/TileMap.h"
+#include "../Data/MapPackage.h"
+
 
 class Maze : public WorldObject {
-	MapData mapData_;
 	TileMap tileMap_;
 
 public:

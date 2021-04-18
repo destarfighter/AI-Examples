@@ -29,8 +29,8 @@ std::shared_ptr<ProblemSolver> createProblemSolver() {
 	frameInfo.push_back(CRY_ANIMATION);
 	AnimData animData{ texture, frameInfo, frameInfo.size() };
 
-	auto newProblemSolver_ptr = std::make_shared<ProblemSolver>(ProblemSolver());
-	newProblemSolver_ptr->initialize(animData, 0, sf::Vector2f(CHARACTER_START_X, CHARACTER_START_Y));
+	auto newProblemSolver_ptr = std::make_shared<ProblemSolver>(*(new ProblemSolver()));
+	newProblemSolver_ptr->initialize(animData, 0, sf::Vector2f(CHARACTER_START_X * TILESIZE, CHARACTER_START_Y * TILESIZE));
 
 	return newProblemSolver_ptr;
 }

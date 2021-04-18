@@ -1,14 +1,12 @@
 #pragma once
 #include <future>
 #include "AIController.h"
-
 #include "ProblemSolverState.h"
-#include "FollowPathState.h"
-#include "ShowResultState.h"
 #include "../AI/Pathfinder.h"
 #include "../Data/ProblemPackage.h"
 #include "../Services/WorldStateLocator.h"
 #include "../WorldObjects/Maze.h"
+#include "DrawPathProcessState.h"
 
 /// <summary>
 /// The State for the LittleProblemSolver where it is supposed to asynchroniously retrieve the shortest path from point A to point B. 

@@ -26,12 +26,7 @@ ProblemDefinition FindPathState::generateRandomProblem(sf::Vector2f characterPos
 void FindPathState::update(float deltaTime) {
 	if (path_._Is_ready()) {
 		if (clock_.getElapsedTime().asSeconds() > waitTime_) {
-			if (pathfinder_.getFoundPath()) {
-				parent_->setState(new FollowPathState(parent_, owner_, path_.get()));
-			}
-			else {
-				parent_->setState(new ShowResultState(parent_, owner_, false));
-			}
+			parent_->setState(new DrawPathProcessState(parent_, owner_, path_.get(), pathfinder_.getSearchProcess(), pathfinder_.getFoundPath()));
 		}
 	}
 }
@@ -62,4 +57,4 @@ FindPathState::FindPathState(AIController* parent, AnimatedSprite* owner, Proble
 	: ProblemSolverState(parent, owner)
 	, problemDefinition_(problemDefinition)
 	, clock_(sf::Clock())
-	, waitTime_(2) { }
+	, waitTime_(1) { }

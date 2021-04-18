@@ -48,19 +48,19 @@ std::vector<unsigned long int> Pathfinder::makePath(const long int target, const
 long int Pathfinder::manhattanDistance(long int position, long int target)
 {
 	// convert values to coordinates
-	int positionX = (position % MAP_WIDTH) * TILESIZE;
-	int positionY = (position / MAP_WIDTH) * TILESIZE;
-	int targetX = (target % MAP_WIDTH)* TILESIZE;
-	int targetY = (target / MAP_WIDTH) * TILESIZE;
+	int positionX = (position % MAP_WIDTH);
+	int positionY = ((position - positionX) / MAP_WIDTH);
+	int targetX = (target % MAP_WIDTH);
+	int targetY = ((target - targetX) / MAP_WIDTH);
 
 	// subtract position from target and return absolute value of distance
-	return std::abs(targetX - positionX) + std::abs(targetY - positionY);
+	return (std::abs(targetX - positionX) + std::abs(targetY - positionY));
 }
 
 std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData) {
 	
 	std::priority_queue<Position> open_pos_que;
-	std::vector<long int> distances_from_start(mapData.height_ * mapData.width_, LONG_MAX);
+	std::vector<long int> current_position_score(mapData.height_ * mapData.width_, LONG_MAX);
 	std::vector<long int> previous_positions(mapData.height_ * mapData.width_, LONG_MAX);
 
 	long int target = (destination.y * mapData.width_) + destination.x;
@@ -68,19 +68,23 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 
 	const Step movement_directions[] = { {UP, -static_cast<long int>(mapData.width_)}, {DOWN, mapData.width_}, {LEFT, -1}, {RIGHT, 1} };
 	const int step_cost = 1;
+	foundPath_ = false;
 
 	// Start position need manhattan distance
 	auto start_manhattan = manhattanDistance(start, target);
-	open_pos_que.push({ start , start_manhattan });
-	distances_from_start[start] = start_manhattan;
+	open_pos_que.push({ start , 0, start_manhattan, start_manhattan });
+	current_position_score[start] = start_manhattan;
 
 	while (!open_pos_que.empty())
 	{
 		Position current = open_pos_que.top();
 		open_pos_que.pop();
 
-		if (distances_from_start[current.pos] != current.dist) 
+		if (current_position_score[current.pos] != current.g) 
 			continue; // position is outdated by another route. 
+
+		// Add current index as 'visited' to search-process list
+		searchProcess_.push_back({ current.pos, VISITED_TILE });
 
 		if (current.pos == target)
 		{
@@ -95,18 +99,25 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 				continue; // Node is not traversable
 
 			long int new_position = current.pos + step.step_value;
+			long int new_dist = current.dist + step_cost;
+			long int new_h = manhattanDistance(new_position, target);
+			long int new_g = new_dist + new_h;
 
-			long int new_dist = distances_from_start[current.pos] + step_cost
-				+ manhattanDistance(new_position, target);
-
-			if (new_dist < distances_from_start[new_position])
+			if (new_g < current_position_score[new_position])
 			{
-				distances_from_start[new_position] = new_dist;
+				// Add current index as 'investigated' to search-process list
+				searchProcess_.push_back({ new_position, INVESTIGATED_TILE });
+
+				current_position_score[new_position] = new_g;
 				previous_positions[new_position] = current.pos;
-				open_pos_que.push({ new_position, new_dist });
+				open_pos_que.push({new_position, new_dist, new_h, new_g});
 			}
 		}
 	}
 	foundPath_ = false;
 	return std::vector<unsigned long int>(); // found no path from start to target
 }
+
+Pathfinder::Pathfinder()
+: foundPath_(false)
+, searchProcess_(std::vector<TileFrame>()) {}

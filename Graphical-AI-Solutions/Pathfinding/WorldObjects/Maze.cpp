@@ -1,18 +1,14 @@
 #include "Maze.h"
 
 Maze::Maze()
-: mapData_(MapData())
-, tileMap_(TileMap()) { }
+: tileMap_(TileMap()) { }
 
 void Maze::setMapData(MapData mapData) {
-	mapData_ = mapData;
 	tileMap_.setMapData(mapData);
 }
 
 void Maze::initialize(std::string tileSetPath, MapData mapData) {
-	mapData_ = mapData;
-	tileMap_ = TileMap();
-	tileMap_.initialize(tileSetPath, mapData_);
+	tileMap_.initialize(tileSetPath, mapData);
 }
 
 void Maze::draw(sf::RenderWindow& window) {

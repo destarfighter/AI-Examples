@@ -145,15 +145,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIState.cpp" />
     <ClCompile Include="AI\AIController.cpp" />
+    <ClCompile Include="AI\DrawPathProcessState.cpp" />
     <ClCompile Include="AI\FindPathState.cpp" />
     <ClCompile Include="AI\FollowPathState.cpp" />
     <ClCompile Include="AI\Pathfinder.cpp" />
     <ClCompile Include="AI\ShowResultState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProblemSolverState.cpp" />
     <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp" />
     <ClCompile Include="Semi-Primitives\TileMap.cpp" />
     <ClCompile Include="Services\WorldStateLocator.cpp" />
+    <ClCompile Include="WorldObjects\PathAnimater.cpp" />
     <ClCompile Include="WorldObjects\ProblemSolver.cpp" />
     <ClCompile Include="WorldObjects\Maze.cpp" />
     <ClCompile Include="WorldObjects\WorldObject.cpp" />
@@ -165,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="AI\AIController.h" />
     <ClInclude Include="AI\AIState.h" />
+    <ClInclude Include="AI\DrawPathProcessState.h" />
     <ClInclude Include="AI\FindPathState.h" />
     <ClInclude Include="AI\FollowPathState.h" />
     <ClInclude Include="AI\Pathfinder.h" />
@@ -177,6 +182,7 @@
     <ClInclude Include="Semi-Primitives\TileMap.h" />
     <ClInclude Include="Services\WorldState.hpp" />
     <ClInclude Include="Services\WorldStateLocator.h" />
+    <ClInclude Include="WorldObjects\PathAnimater.h" />
     <ClInclude Include="WorldObjects\ProblemSolver.h" />
     <ClInclude Include="WorldObjects\Maze.h" />
     <ClInclude Include="WorldObjects\WorldObject.hpp" />
