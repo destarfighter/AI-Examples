@@ -2,15 +2,13 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 #include <queue>
-#include <stack>
 #include <climits>
 #include <future>
 #include "../Data/MapPackage.h"
 #include "../config.h"
 #include "../WorldObjects/PathAnimater.h"
 
-enum Direction
-{
+enum Direction {
 	UP = 0,
 	DOWN = 1,
 	LEFT = 2,
@@ -25,23 +23,17 @@ struct Step {
 struct Position {
 	// describes a point in a 2D-grid of "FindPath"- nMapWidth and nMapHeight
 	long int pos;  
-	// tentative distance from a source to pos.
+	// tentative distance from a source to pos combined with manhattan distance from current position to target.
 	long int dist; 
-	// h value with manhattan distance from position to target
+	// a heuristic value for the position, in this case manhattan distance from current position to target. 
 	long int h;
-	// value of dist + h
-	long int g;
+	// fitness value for position. a combination of dist and h. 
+	long int f;
 
 	friend bool operator<(const Position& lhs, const Position& rhs)
 	{
-		// use h value if g is the same. this makes the list prioritize tiles with same score, but prefers those who are closer to target.
 		// compare is reversed due to smaller being better
-		if (lhs.g == rhs.g) {
-			return lhs.h > rhs.h;
-		}
-		else {
-			return lhs.g > rhs.g;
-		}
+		return lhs.f > rhs.f;
 	}
 };
 
@@ -57,7 +49,7 @@ private:
 public:
 	std::vector<unsigned long int> findPath(sf::Vector2f startPosition, sf::Vector2u destination, MapData mapData);
 	const bool getFoundPath() const noexcept { return foundPath_; }
-	std::vector<TileFrame> getSearchProcess() { return searchProcess_; }
+	std::vector<TileFrame> getSearchProcess() const noexcept { return searchProcess_; }
 	Pathfinder();
 };
 

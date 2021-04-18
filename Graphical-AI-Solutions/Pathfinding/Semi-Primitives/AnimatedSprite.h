@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../WorldObjects/WorldObject.hpp"
+#include "../WorldObjects/WorldObject.h"
 #include "../config.h"
 
 struct AnimFrameData {
@@ -41,5 +41,5 @@ public:
 	virtual void initialize(AnimData animData, unsigned int startingAnimNum);
 	virtual void update(float deltaTime);
 	void changeAnim(unsigned int num);
-	int getAnimationByName(std::string animationName);
+	int getAnimationIndexByName(std::string animationName);
 };

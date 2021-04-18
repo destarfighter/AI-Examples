@@ -20,6 +20,6 @@ struct WorldObjectIdentifier {
 
 class WorldObject {
 public:
-	virtual void update(float deltaTime) { /* Do Nothing */};
+	virtual void update(float deltaTime) { /* Do Nothing */ };
 	virtual void draw(sf::RenderWindow& window) { /* Do Nothing */ };
 };

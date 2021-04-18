@@ -5,8 +5,10 @@
 
 class TileMap : public sf::Drawable, public sf::Transformable {
 private:
+	// A verttex array containing the mapping data between texture and tile. 
 	sf::VertexArray vertices_;
-	std::shared_ptr<sf::Texture> tileset_ptr_; // TODO: Memory leak in sf::Texture. texture should be freed as TileMap goes out of scope or is destroyed, but it doesnt. 
+	// A texture containing the tileset for the map. sf::Texture currently causes memory leaks. 
+	std::shared_ptr<sf::Texture> tileset_ptr_;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 

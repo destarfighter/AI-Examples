@@ -1,9 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../WorldObjects/WorldObject.hpp"
+#include "../WorldObjects/WorldObject.h"
 #include "../Semi-Primitives/TileMap.h"
 #include "../Data/MapPackage.h"
-
 
 class Maze : public WorldObject {
 	TileMap tileMap_;

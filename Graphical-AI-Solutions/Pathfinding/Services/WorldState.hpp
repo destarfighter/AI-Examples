@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include <list>
-#include "../WorldObjects/WorldObject.hpp"
+#include "../WorldObjects/WorldObject.h"
 
 class WorldState {
 public:

@@ -19,7 +19,6 @@ struct CrtCheckMemory
 	~CrtCheckMemory()
 	{
 		_CrtMemCheckpoint(&state2);
-		_CrtMemCheckpoint(&state3);
 
 		// else just do this to dump the leaked blocks to stdout.
 		if (_CrtMemDifference(&state3, &state1, &state2))

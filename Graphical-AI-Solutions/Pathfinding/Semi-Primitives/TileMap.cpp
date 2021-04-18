@@ -77,10 +77,8 @@ void TileMap::SetTileData(int tileIndex, int newTextureIndex) {
 void TileMap::draw(sf::RenderTarget& target, sf::RenderStates renderStates) const {
 	// Apply the transform
 	renderStates.transform *= getTransform();
-
 	// Apply the tileset texture
 	renderStates.texture = tileset_ptr_.get();
-	
 	// Draw the vertex
 	target.draw(vertices_, renderStates);
 }

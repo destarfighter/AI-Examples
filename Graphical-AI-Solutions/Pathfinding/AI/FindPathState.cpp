@@ -41,12 +41,12 @@ void FindPathState::enter() {
 	auto maze = worldState->getObject(mazeId);
 	
 	// Cast to Maze and call setMapData with problem update	
-	std::static_pointer_cast<Maze>(maze)->setMapData(problemDefinition_.mapData);
+	std::static_pointer_cast<Maze>(maze)->setMapData(problemDefinition_.mapData_);
 
-	path_ = std::async(&Pathfinder::findPath, &pathfinder_, owner_->getPosition(), problemDefinition_.destination, problemDefinition_.mapData);
+	path_ = std::async(&Pathfinder::findPath, &pathfinder_, owner_->getPosition(), problemDefinition_.destination_, problemDefinition_.mapData_);
 
 	// Set thinking animation
-	auto animIndex = owner_->getAnimationByName(IDLE_ANIMATION.animName_);
+	auto animIndex = owner_->getAnimationIndexByName(IDLE_ANIMATION.animName_);
 	owner_->changeAnim(animIndex);
 
 	// Start clock

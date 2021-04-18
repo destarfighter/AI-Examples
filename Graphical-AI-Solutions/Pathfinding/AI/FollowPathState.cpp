@@ -24,13 +24,13 @@ void FollowPathState::setAnimationDirection(sf::Vector2i direction) {
 	// set new animation
 	int animIndex = 0;
 	if (direction_.x > 0)
-		animIndex = owner_->getAnimationByName(WALKING_RIGHT_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(WALKING_RIGHT_ANIMATION.animName_);
 	else if (direction_.x < 0)
-		animIndex = owner_->getAnimationByName(WALKING_LEFT_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(WALKING_LEFT_ANIMATION.animName_);
 	else if (direction_.y > 0)
-		animIndex = owner_->getAnimationByName(WALKING_DOWN_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(WALKING_DOWN_ANIMATION.animName_);
 	else if (direction_.y < 0)
-		animIndex = owner_->getAnimationByName(WALKING_UP_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(WALKING_UP_ANIMATION.animName_);
 	owner_->changeAnim(animIndex);
 }
 

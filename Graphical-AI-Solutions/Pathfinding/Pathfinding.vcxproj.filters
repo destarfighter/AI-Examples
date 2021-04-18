@@ -127,7 +127,7 @@
     <ClInclude Include="Data\ProblemPackage.h">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
-    <ClInclude Include="WorldObjects\WorldObject.hpp">
+    <ClInclude Include="WorldObjects\WorldObject.h">
       <Filter>Header Files\WorldObjects</Filter>
     </ClInclude>
     <ClInclude Include="Services\WorldState.hpp">

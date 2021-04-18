@@ -80,7 +80,7 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 		Position current = open_pos_que.top();
 		open_pos_que.pop();
 
-		if (current_position_score[current.pos] != current.g) 
+		if (current_position_score[current.pos] != current.f) 
 			continue; // position is outdated by another route. 
 
 		// Add current index as 'visited' to search-process list
@@ -101,16 +101,16 @@ std::vector<unsigned long int> Pathfinder::findPath(sf::Vector2f startPosition, 
 			long int new_position = current.pos + step.step_value;
 			long int new_dist = current.dist + step_cost;
 			long int new_h = manhattanDistance(new_position, target);
-			long int new_g = new_dist + new_h;
+			long int new_f = new_dist + new_h;
 
-			if (new_g < current_position_score[new_position])
+			if (new_f < current_position_score[new_position])
 			{
 				// Add current index as 'investigated' to search-process list
 				searchProcess_.push_back({ new_position, INVESTIGATED_TILE });
 
-				current_position_score[new_position] = new_g;
+				current_position_score[new_position] = new_f;
 				previous_positions[new_position] = current.pos;
-				open_pos_que.push({new_position, new_dist, new_h, new_g});
+				open_pos_que.push({new_position, new_dist, new_h, new_f});
 			}
 		}
 	}

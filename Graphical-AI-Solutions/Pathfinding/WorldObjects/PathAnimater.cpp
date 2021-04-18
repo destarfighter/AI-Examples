@@ -31,14 +31,9 @@ void PathAnimater::update(float deltaTime) {
 		}
 		break;
 	case DRAWING_PATH:
-		break;
-	case DONE:
-		break;
-	default:
+		// Drawing path not implemented yet. Drawing_Search skips this and sets state directly to Done instead. 
 		break;
 	}
-
-	
 }
 
 void PathAnimater::draw(sf::RenderWindow& window) {

@@ -3,7 +3,7 @@
 #include "CrtCheckMemory.h"
 #include "../Pathfinding/Services/WorldState.hpp"
 #include "../Pathfinding/Services/WorldStateLocator.h"
-#include "../Pathfinding/WorldObjects/WorldObject.hpp"
+#include "../Pathfinding/WorldObjects/WorldObject.h"
 #include "DerivedFromWorldObject.h"
 #include <iostream>
 

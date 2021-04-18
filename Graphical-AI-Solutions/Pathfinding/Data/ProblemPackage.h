@@ -4,7 +4,7 @@
 
 struct ProblemDefinition {
 	// The environment of a problem for a pathfinder
-	MapData mapData;
+	MapData mapData_;
 	// The desination of a pathfinder problem
-	sf::Vector2u destination;
+	sf::Vector2u destination_;
 };

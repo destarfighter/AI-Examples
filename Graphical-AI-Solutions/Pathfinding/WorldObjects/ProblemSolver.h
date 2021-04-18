@@ -1,5 +1,5 @@
 #pragma once
-#include "../WorldObjects/WorldObject.hpp"
+#include "../WorldObjects/WorldObject.h"
 #include "../AI/AIController.h"
 #include "../Semi-Primitives/AnimatedSprite.h"
 
@@ -18,6 +18,7 @@ public:
 
 #pragma region friend-Classes "States"
 	friend class FindPathState;
+	friend class DrawPathProcessState;
 	friend class FollowPathState;
 	friend class ShowResultState;
 	friend class GetNewProblemState;

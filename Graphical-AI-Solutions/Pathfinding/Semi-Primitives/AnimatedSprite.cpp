@@ -15,7 +15,6 @@ void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum)
 		sf::Sprite::setTexture(*animData_.spriteSheet_ptr_);
 		// Set animation to default animation.
 		changeAnim(0);
-
 		// Create Animation States Mappings
 		for (unsigned int i = 0; i < animData.numOfAnimatons_; ++i) {
 			animationStates_.emplace(animData.frameInfo_[i].animName_, i);
@@ -52,8 +51,9 @@ void AnimatedSprite::update(float deltaTime) {
 void AnimatedSprite::changeAnim(unsigned int num) {
 	if (num > animData_.numOfAnimatons_)
 		throw std::exception("Animation number out of range.");
-	animNum_ = num;
+
 	// The active animation is now at frame 0 and 0.0f time
+	animNum_ = num;
 	frameNum_ = 0;
 	frameTime_ = 0.0f;
 
@@ -71,7 +71,7 @@ void AnimatedSprite::changeAnim(unsigned int num) {
 	sf::Sprite::setOrigin(xOffset, yOffset);
 }
 
-int AnimatedSprite::getAnimationByName(std::string animationName)
+int AnimatedSprite::getAnimationIndexByName(std::string animationName)
 {
 	if (animationStates_.find(animationName) != animationStates_.end()) {
 		return animationStates_[animationName];

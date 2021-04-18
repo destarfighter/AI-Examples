@@ -11,10 +11,10 @@ void ShowResultState::enter() {
 	// Set Animation "Celebrate" or "Cry"
 	int animIndex = 0;
 	if (foundPath_) {
-		animIndex = owner_->getAnimationByName(CELEBRATE_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(CELEBRATE_ANIMATION.animName_);
 	}
 	else {
-		animIndex = owner_->getAnimationByName(CRY_ANIMATION.animName_);
+		animIndex = owner_->getAnimationIndexByName(CRY_ANIMATION.animName_);
 	}
 	owner_->changeAnim(animIndex);
 	// Start clock

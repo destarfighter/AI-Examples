@@ -3,7 +3,7 @@
 #include "CppUnitTest.h"
 #include "CrtCheckMemory.h"
 
-#include "../Pathfinding/WorldObjects/WorldObject.hpp"
+#include "../Pathfinding/WorldObjects/WorldObject.h"
 #include "../Pathfinding/WorldObjects/ProblemSolver.h"
 #include "../Pathfinding/WorldObjects/PathAnimater.h"
 #include "../Pathfinding/WorldObjects/Maze.h"
@@ -34,6 +34,7 @@ namespace PathfindingTest
 		}
 		TEST_METHOD(PathAnimaterYieldsNoMemoryLeak)
 		{
+			// At the moment there is an issue with sfml with sf::Texture which leads to memory leaks. This test will fail
 			CrtCheckMemory memoryCheck;
 			{
 				auto pathAnimater = new PathAnimater();
@@ -42,6 +43,7 @@ namespace PathfindingTest
 		}
 		TEST_METHOD(MazeYieldsNoMemoryLeak)
 		{
+			// At the moment there is an issue with sfml with sf::Texture which leads to memory leaks. This test will fail
 			CrtCheckMemory memoryCheck;
 			{
 				auto maze = new Maze();
@@ -69,6 +71,7 @@ namespace PathfindingTest
 		}
 		TEST_METHOD(TileMapYieldsNoMemoryLeak)
 		{
+			// At the moment there is an issue with sfml with sf::Texture which leads to memory leaks. This test will fail
 			CrtCheckMemory memoryCheck;
 			{
 				auto tileMap = new TileMap();
