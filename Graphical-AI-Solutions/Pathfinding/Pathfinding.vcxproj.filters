@@ -87,11 +87,11 @@
     <ClCompile Include="AI\DrawPathProcessState.cpp">
       <Filter>Header Files\AI\Problem Solver States</Filter>
     </ClCompile>
-    <ClCompile Include="AIState.cpp">
-      <Filter>Source Files\AI</Filter>
+    <ClCompile Include="AI\AIState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProblemSolverState.cpp">
-      <Filter>Header Files\AI\Problem Solver States</Filter>
+    <ClCompile Include="AI\ProblemSolverState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -145,15 +145,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AIState.cpp" />
     <ClCompile Include="AI\AIController.cpp" />
+    <ClCompile Include="AI\AIState.cpp" />
     <ClCompile Include="AI\DrawPathProcessState.cpp" />
     <ClCompile Include="AI\FindPathState.cpp" />
     <ClCompile Include="AI\FollowPathState.cpp" />
     <ClCompile Include="AI\Pathfinder.cpp" />
+    <ClCompile Include="AI\ProblemSolverState.cpp" />
     <ClCompile Include="AI\ShowResultState.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ProblemSolverState.cpp" />
     <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp" />
     <ClCompile Include="Semi-Primitives\TileMap.cpp" />
     <ClCompile Include="Services\WorldStateLocator.cpp" />

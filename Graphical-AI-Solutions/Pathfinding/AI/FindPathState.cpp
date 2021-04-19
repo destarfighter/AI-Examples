@@ -32,7 +32,7 @@ void FindPathState::update(float deltaTime) {
 }
 
 void FindPathState::enter() {
-	// if no problem was provided generate a new problem
+	// TODO: if no problem was provided generate a new problem
 	problemDefinition_ = generateRandomProblem(owner_->getPosition());
 	
 	// find maze object in worlState
