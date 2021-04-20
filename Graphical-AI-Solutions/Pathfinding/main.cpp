@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "Services/WorldState.hpp"
-#include "Services/WorldStateLocator.h"
+#include "WorldState.hpp"
+#include "WorldStateLocator.h"
 #include "WorldObjects/ProblemSolver.h"
 #include "WorldObjects/Maze.h"
 #include "Data/MapPackage.h"

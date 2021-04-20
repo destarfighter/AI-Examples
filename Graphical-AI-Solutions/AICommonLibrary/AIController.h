@@ -1,7 +1,9 @@
 #pragma once
-#include "../AI/AIState.h"
+#include "AIState.h"
 
-class AIController {
+#define AICOMMONLIBRARY_API __declspec(dllexport)
+
+class AICOMMONLIBRARY_API AIController {
 private:
 	AIState* state_;
 public:

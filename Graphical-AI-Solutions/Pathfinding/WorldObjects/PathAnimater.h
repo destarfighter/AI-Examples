@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "../Semi-Primitives/TileMap.h"
-#include "../WorldObjects/WorldObject.h"
+#include "WorldObject.h"
 
 enum PathAnimaterState {
 	DRAWING_SEARCH = 0,

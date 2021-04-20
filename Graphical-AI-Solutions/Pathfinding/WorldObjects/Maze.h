@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../WorldObjects/WorldObject.h"
+#include "WorldObject.h"
 #include "../Semi-Primitives/TileMap.h"
 #include "../Data/MapPackage.h"
 

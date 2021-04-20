@@ -4,7 +4,7 @@
 #include "../config.h"
 #include "FollowPathState.h"
 #include "ShowResultState.h"
-#include "../Services/WorldStateLocator.h"
+#include "WorldStateLocator.h"
 
 class DrawPathProcessState : public ProblemSolverState {
 private:

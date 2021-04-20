@@ -1,6 +1,6 @@
 #pragma once
-#include "../WorldObjects/WorldObject.h"
-#include "../AI/AIController.h"
+#include "WorldObject.h"
+#include "AIController.h"
 #include "../Semi-Primitives/AnimatedSprite.h"
 
 class ProblemSolver : public WorldObject{

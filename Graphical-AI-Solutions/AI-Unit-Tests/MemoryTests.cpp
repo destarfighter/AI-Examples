@@ -3,7 +3,7 @@
 #include "CppUnitTest.h"
 #include "CrtCheckMemory.h"
 
-#include "../Pathfinding/WorldObjects/WorldObject.h"
+#include "WorldObject.h"
 #include "../Pathfinding/WorldObjects/ProblemSolver.h"
 #include "../Pathfinding/WorldObjects/PathAnimater.h"
 #include "../Pathfinding/WorldObjects/Maze.h"

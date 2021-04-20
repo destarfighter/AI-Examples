@@ -1,4 +1,5 @@
 #pragma once
+#include "pch.h"
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 

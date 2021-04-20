@@ -1,5 +1,5 @@
 #pragma once
-#include "../Pathfinding/WorldObjects/WorldObject.h"
+#include "WorldObject.h"
 
 class DerivedFromWorldObject : public WorldObject {
 	WorldObjectIdentifier id_;

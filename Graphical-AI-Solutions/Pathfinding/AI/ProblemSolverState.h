@@ -1,5 +1,5 @@
 #pragma once
-#include "../AI/AIState.h"
+#include "AIState.h"
 #include "../Semi-Primitives/AnimatedSprite.h"
 
 class ProblemSolverState : public AIState {

@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "CrtCheckMemory.h"
-#include "../Pathfinding/Services/WorldState.hpp"
-#include "../Pathfinding/Services/WorldStateLocator.h"
-#include "../Pathfinding/WorldObjects/WorldObject.h"
+#include "WorldState.hpp"
+#include "WorldStateLocator.h"
+#include "WorldObject.h"
 #include "DerivedFromWorldObject.h"
 #include <iostream>
 

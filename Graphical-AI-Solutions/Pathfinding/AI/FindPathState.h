@@ -4,7 +4,7 @@
 #include "ProblemSolverState.h"
 #include "../AI/Pathfinder.h"
 #include "../Data/ProblemPackage.h"
-#include "../Services/WorldStateLocator.h"
+#include "WorldStateLocator.h"
 #include "../WorldObjects/Maze.h"
 #include "DrawPathProcessState.h"
 

@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-struct WorldObjectIdentifier {
+#define AICOMMONLIBRARY_API __declspec(dllexport)
+
+struct AICOMMONLIBRARY_API WorldObjectIdentifier {
 	std::string name_;
 	int priority_;
 
@@ -18,8 +20,8 @@ struct WorldObjectIdentifier {
 	}
 };
 
-class WorldObject {
+class AICOMMONLIBRARY_API WorldObject {
 public:
-	virtual void update(float deltaTime) { /* Do Nothing */ };
-	virtual void draw(sf::RenderWindow& window) { /* Do Nothing */ };
+	virtual void update(float deltaTime);
+	virtual void draw(sf::RenderWindow& window);
 };

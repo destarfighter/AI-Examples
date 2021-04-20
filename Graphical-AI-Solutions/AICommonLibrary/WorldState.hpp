@@ -1,9 +1,11 @@
 #pragma once
 #include <map>
 #include <list>
-#include "../WorldObjects/WorldObject.h"
+#include "WorldObject.h"
 
-class WorldState {
+#define AICOMMONLIBRARY_API __declspec(dllexport)
+
+class AICOMMONLIBRARY_API WorldState {
 public:
 	virtual ~WorldState() { }
 
@@ -19,7 +21,7 @@ public:
 	virtual bool findObjectById(WorldObjectIdentifier id) = 0;
 };
 
-class WorldStateProvider : public WorldState {
+class AICOMMONLIBRARY_API WorldStateProvider : public WorldState {
 	// All objects that exist in drawables or updatables has their identity in this list. 
 	std::list<WorldObjectIdentifier> worldStateContentIdentities;
 	// Drawable collection
