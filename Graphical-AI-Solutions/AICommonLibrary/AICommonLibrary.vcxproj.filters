@@ -9,15 +9,20 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Objects">
       <UniqueIdentifier>{e832ea6a-503d-4f36-bbc1-6cebc1824b8c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Services">
       <UniqueIdentifier>{26c49511-3988-459a-83cc-869743624439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI">
+      <UniqueIdentifier>{a8ab63d6-1b46-41c4-a010-215b59dc5b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NonExportableSFMLExtensions">
+      <UniqueIdentifier>{2d442cdf-7e2a-491c-9b59-8d087b24fd2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{9c87b910-bd53-4f27-9e70-b4268dde210d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,16 +42,22 @@
       <Filter>Services</Filter>
     </ClInclude>
     <ClInclude Include="AIController.h">
-      <Filter>Header Files</Filter>
+      <Filter>AI</Filter>
     </ClInclude>
     <ClInclude Include="AIState.h">
-      <Filter>Header Files</Filter>
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>NonExportableSFMLExtensions</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>NonExportableSFMLExtensions</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPackage.h">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,10 +68,19 @@
       <Filter>Services</Filter>
     </ClCompile>
     <ClCompile Include="AIController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>AI</Filter>
     </ClCompile>
     <ClCompile Include="AIState.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>NonExportableSFMLExtensions</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>NonExportableSFMLExtensions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

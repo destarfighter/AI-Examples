@@ -2,9 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "WorldObject.h"
 
-#define AICOMMONLIBRARY_API __declspec(dllexport)
-
-struct AICOMMONLIBRARY_API AnimFrameData {
+struct AnimFrameData {
 	// The offset of the first frame and the size of the images of an animation
 	sf::Rect<int> animOffset_;
 	// The total number of frames for said animation
@@ -13,7 +11,7 @@ struct AICOMMONLIBRARY_API AnimFrameData {
 	std::string animName_;
 };
 
-struct AICOMMONLIBRARY_API AnimData {
+struct AnimData {
 	// ImageFile with all the animations
 	std::shared_ptr<sf::Texture> spriteSheet_ptr_;
 	// The frame data for all the different animations
@@ -22,7 +20,7 @@ struct AICOMMONLIBRARY_API AnimData {
 	unsigned int numOfAnimatons_;
 };
 
-class AICOMMONLIBRARY_API AnimatedSprite : public sf::Sprite {
+class AnimatedSprite : public sf::Sprite {
 private:
 	// Mapping for animation states in the AnimatedSprite, name of animation - index of animation in AnimData
 	std::map<std::string, int> animationStates_;

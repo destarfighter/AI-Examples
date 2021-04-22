@@ -40,12 +40,6 @@
     <ClCompile Include="AI\ProblemSolverState.cpp">
       <Filter>AI\Problem Solver States</Filter>
     </ClCompile>
-    <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp">
-      <Filter>Semi-Primitives</Filter>
-    </ClCompile>
-    <ClCompile Include="Semi-Primitives\TileMap.cpp">
-      <Filter>Semi-Primitives</Filter>
-    </ClCompile>
     <ClCompile Include="WorldObjects\Maze.cpp">
       <Filter>WorldObjects</Filter>
     </ClCompile>
@@ -56,6 +50,12 @@
       <Filter>WorldObjects</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\AICommonLibrary\AnimatedSprite.cpp">
+      <Filter>Semi-Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AICommonLibrary\TileMap.cpp">
+      <Filter>Semi-Primitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Positiv Animation Sheet.png">
@@ -96,15 +96,12 @@
     <ClInclude Include="WorldObjects\PathAnimater.h">
       <Filter>WorldObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Data\MapPackage.h">
-      <Filter>Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Semi-Primitives\TileMap.h">
-      <Filter>Semi-Primitives</Filter>
-    </ClInclude>
-    <ClInclude Include="Semi-Primitives\AnimatedSprite.h">
-      <Filter>Semi-Primitives</Filter>
-    </ClInclude>
     <ClInclude Include="config.h" />
+    <ClInclude Include="..\AICommonLibrary\AnimatedSprite.h">
+      <Filter>Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AICommonLibrary\TileMap.h">
+      <Filter>Semi-Primitives</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ AnimatedSprite::AnimatedSprite()
 , animNum_(0)
 , frameNum_(0)
 , frameTime_(0)
-, animFPS_(12) { } // TODO: add frame rate to arguments
+, animFPS_(12) { } // TODO: add frame rate as argument, or setFunction
 
 void AnimatedSprite::initialize(AnimData animData, unsigned int startingAnimNum) {
 		animData_ = animData;
@@ -66,7 +66,7 @@ void AnimatedSprite::changeAnim(unsigned int num) {
 		animData_.frameInfo_[animNum_].animOffset_.height));
 
 	// Update Animation origin based on TileSize
-	int xOffset = std::abs(32 - animData_.frameInfo_[animNum_].animOffset_.width); // TODO: att TileSize to arguments
+	int xOffset = std::abs(32 - animData_.frameInfo_[animNum_].animOffset_.width); // TODO: add tilesize as argument
 	int yOffset = std::abs(32 - animData_.frameInfo_[animNum_].animOffset_.height);
 	// apply to origin
 	sf::Sprite::setOrigin(xOffset, yOffset);

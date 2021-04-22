@@ -3,7 +3,7 @@
 #include "WorldStateLocator.h"
 #include "WorldObjects/ProblemSolver.h"
 #include "WorldObjects/Maze.h"
-#include "Data/MapPackage.h"
+#include "MapPackage.h"
 #include "AI/ProblemSolverState.h"
 #include "config.h"
 

@@ -3,7 +3,9 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 
-struct MapData {
+#define AICOMMONLIBRARY_API __declspec(dllexport)
+
+struct AICOMMONLIBRARY_API MapData {
 	// The size of each individual tile in a tileMap
 	sf::Vector2u tileSize_;
 	// The map 2d layout represented as integers

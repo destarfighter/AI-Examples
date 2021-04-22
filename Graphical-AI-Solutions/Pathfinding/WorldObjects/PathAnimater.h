@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "../Semi-Primitives/TileMap.h"
+#include "TileMap.h"
 #include "WorldObject.h"
+#include "../config.h"
 
 enum PathAnimaterState {
 	DRAWING_SEARCH = 0,

@@ -1,7 +1,7 @@
 #pragma once
 #include "WorldObject.h"
 #include "AIController.h"
-#include "../Semi-Primitives/AnimatedSprite.h"
+#include "AnimatedSprite.h"
 
 class ProblemSolver : public WorldObject{
 private:

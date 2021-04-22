@@ -4,7 +4,7 @@
 #include <queue>
 #include <climits>
 #include <future>
-#include "../Data/MapPackage.h"
+#include "MapPackage.h"
 #include "../config.h"
 #include "../WorldObjects/PathAnimater.h"
 

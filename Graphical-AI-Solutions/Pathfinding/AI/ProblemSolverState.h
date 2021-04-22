@@ -1,6 +1,6 @@
 #pragma once
 #include "AIState.h"
-#include "../Semi-Primitives/AnimatedSprite.h"
+#include "AnimatedSprite.h"
 
 class ProblemSolverState : public AIState {
 protected:

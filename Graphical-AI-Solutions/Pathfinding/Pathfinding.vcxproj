@@ -145,6 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\AICommonLibrary\AnimatedSprite.cpp" />
+    <ClCompile Include="..\AICommonLibrary\TileMap.cpp" />
     <ClCompile Include="AI\DrawPathProcessState.cpp" />
     <ClCompile Include="AI\FindPathState.cpp" />
     <ClCompile Include="AI\FollowPathState.cpp" />
@@ -152,8 +154,6 @@
     <ClCompile Include="AI\ProblemSolverState.cpp" />
     <ClCompile Include="AI\ShowResultState.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Semi-Primitives\AnimatedSprite.cpp" />
-    <ClCompile Include="Semi-Primitives\TileMap.cpp" />
     <ClCompile Include="WorldObjects\PathAnimater.cpp" />
     <ClCompile Include="WorldObjects\ProblemSolver.cpp" />
     <ClCompile Include="WorldObjects\Maze.cpp" />
@@ -163,6 +163,8 @@
     <Image Include="Resources\Images\tileset.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\AICommonLibrary\AnimatedSprite.h" />
+    <ClInclude Include="..\AICommonLibrary\TileMap.h" />
     <ClInclude Include="AI\DrawPathProcessState.h" />
     <ClInclude Include="AI\FindPathState.h" />
     <ClInclude Include="AI\FollowPathState.h" />
@@ -170,10 +172,7 @@
     <ClInclude Include="AI\ProblemSolverState.h" />
     <ClInclude Include="AI\ShowResultState.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="Data\MapPackage.h" />
     <ClInclude Include="Data\ProblemPackage.h" />
-    <ClInclude Include="Semi-Primitives\AnimatedSprite.h" />
-    <ClInclude Include="Semi-Primitives\TileMap.h" />
     <ClInclude Include="WorldObjects\PathAnimater.h" />
     <ClInclude Include="WorldObjects\ProblemSolver.h" />
     <ClInclude Include="WorldObjects\Maze.h" />
