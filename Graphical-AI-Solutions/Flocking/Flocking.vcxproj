@@ -146,7 +146,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\AICommonLibrary\AnimatedSprite.cpp" />
+    <ClCompile Include="..\AICommonLibrary\TileMap.cpp" />
+    <ClCompile Include="AI\AnimalStates.cpp" />
+    <ClCompile Include="AI\Steering Behaviors\BlendedSteering.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Objects\Map.cpp" />
+    <ClCompile Include="Objects\Animal.cpp" />
+    <ClCompile Include="AI\Steering Behaviors\SteeringBehavior.cpp" />
+    <ClCompile Include="AI\SheepStates\SheepGrazeState.cpp" />
+    <ClCompile Include="AI\SheepStates\SheepFlockState.cpp" />
+    <ClCompile Include="AI\SheepStates\SheepFleeState.cpp" />
+    <ClCompile Include="AI\SheepStates\SheepSeparateState.cpp" />
+    <ClCompile Include="AI\SheepStates\SheepDeathState.cpp" />
+    <ClCompile Include="AI\PredatorStates\PredatorChaseState.cpp" />
+    <ClCompile Include="AI\PredatorStates\PredatorReturnState.cpp" />
+    <ClCompile Include="AI\PredatorStates\PredatorWanderState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\AICommonLibrary\AnimatedSprite.h" />
+    <ClInclude Include="..\AICommonLibrary\TileMap.h" />
+    <ClInclude Include="AI\AnimalStates.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="AI\Steering Behaviors\BlendedSteering.h" />
+    <ClInclude Include="Objects\Map.h" />
+    <ClInclude Include="Objects\Animal.h" />
+    <ClInclude Include="AI\Steering Behaviors\SteeringBehavior.h" />
+    <ClInclude Include="AI\SheepStates\SheepGrazeState.h" />
+    <ClInclude Include="AI\SheepStates\SheepFlockState.h" />
+    <ClInclude Include="AI\SheepStates\SheepFleeState.h" />
+    <ClInclude Include="AI\SheepStates\SheepSeparateState.h" />
+    <ClInclude Include="AI\SheepStates\SheepDeathState.h" />
+    <ClInclude Include="AI\PredatorStates\PredatorChaseState.h" />
+    <ClInclude Include="AI\PredatorStates\PredatorReturnState.h" />
+    <ClInclude Include="AI\PredatorStates\PredatorWanderState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\flockSpriteSheet.png" />
+    <Image Include="Resources\Images\tileset.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

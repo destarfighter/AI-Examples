@@ -1,22 +1,131 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="objects">
+      <UniqueIdentifier>{ea2360d2-b963-4198-8a2e-81528e20b5a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="AI">
+      <UniqueIdentifier>{05c413df-cc01-44e3-a3e3-1ad07244fda5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\SheepStates">
+      <UniqueIdentifier>{4cf5f0b1-21aa-4758-a049-8f7b2da51812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\PredatorStates">
+      <UniqueIdentifier>{390f0020-36e6-4a4d-b0e0-9d8027a156da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Semi-Primitives">
+      <UniqueIdentifier>{f98a46d9-d982-4a88-a0de-1f65790b81ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\SteeringBehaviors">
+      <UniqueIdentifier>{44bbcb04-3419-4bd6-9fb7-fc158f259e99}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <UniqueIdentifier>{78e8ee65-8b32-4b1c-8871-8ea4472e425f}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\AICommonLibrary\AnimatedSprite.cpp">
+      <Filter>Semi-Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="..\AICommonLibrary\TileMap.cpp">
+      <Filter>Semi-Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Animal.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering Behaviors\BlendedSteering.cpp">
+      <Filter>AI\SteeringBehaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Steering Behaviors\SteeringBehavior.cpp">
+      <Filter>AI\SteeringBehaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Map.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AnimalStates.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\PredatorStates\PredatorChaseState.cpp">
+      <Filter>AI\PredatorStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\PredatorStates\PredatorReturnState.cpp">
+      <Filter>AI\PredatorStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\PredatorStates\PredatorWanderState.cpp">
+      <Filter>AI\PredatorStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SheepStates\SheepDeathState.cpp">
+      <Filter>AI\SheepStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SheepStates\SheepFleeState.cpp">
+      <Filter>AI\SheepStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SheepStates\SheepFlockState.cpp">
+      <Filter>AI\SheepStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SheepStates\SheepGrazeState.cpp">
+      <Filter>AI\SheepStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SheepStates\SheepSeparateState.cpp">
+      <Filter>AI\SheepStates</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\AnimalStates.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AICommonLibrary\AnimatedSprite.h">
+      <Filter>Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AICommonLibrary\TileMap.h">
+      <Filter>Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h" />
+    <ClInclude Include="Objects\Animal.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering Behaviors\BlendedSteering.h">
+      <Filter>AI\SteeringBehaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Steering Behaviors\SteeringBehavior.h">
+      <Filter>AI\SteeringBehaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Map.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\PredatorStates\PredatorChaseState.h">
+      <Filter>AI\PredatorStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\PredatorStates\PredatorReturnState.h">
+      <Filter>AI\PredatorStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\PredatorStates\PredatorWanderState.h">
+      <Filter>AI\PredatorStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SheepStates\SheepDeathState.h">
+      <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SheepStates\SheepFleeState.h">
+      <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SheepStates\SheepFlockState.h">
+      <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SheepStates\SheepGrazeState.h">
+      <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SheepStates\SheepSeparateState.h">
+      <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\flockSpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\tileset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
