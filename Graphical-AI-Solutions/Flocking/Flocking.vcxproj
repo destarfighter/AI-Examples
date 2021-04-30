@@ -150,6 +150,7 @@
     <ClCompile Include="..\AICommonLibrary\TileMap.cpp" />
     <ClCompile Include="AI\AnimalStates.cpp" />
     <ClCompile Include="AI\Steering Behaviors\BlendedSteering.cpp" />
+    <ClCompile Include="Semi-Primitives\Kinematic.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Objects\Map.cpp" />
     <ClCompile Include="Objects\Animal.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="AI\AnimalStates.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="AI\Steering Behaviors\BlendedSteering.h" />
+    <ClInclude Include="Semi-Primitives\Kinematic.h" />
     <ClInclude Include="Objects\Map.h" />
     <ClInclude Include="Objects\Animal.h" />
     <ClInclude Include="AI\Steering Behaviors\SteeringBehavior.h" />

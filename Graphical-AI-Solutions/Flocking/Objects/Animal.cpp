@@ -1,7 +1,8 @@
 #include "Animal.h"
 
 Animal::Animal()
-: aiController_(new AIController())
+: Kinematic()
+, aiController_(new AIController())
 , animatedSprite_(new AnimatedSprite()) { }
 
 Animal::~Animal() {
@@ -10,18 +11,20 @@ Animal::~Animal() {
 }
 
 void Animal::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vector2f startPosition, AnimalState* startingState, float startRotation) {
+	// Initialize AnimatedSprite
 	animatedSprite_->setPosition(startPosition);
-	animatedSprite_->initialize(animData, startingAnimNum);
-
 	animatedSprite_->setRotation(startRotation);
-
+	animatedSprite_->initialize(animData, startingAnimNum);
+	// Initialize AIController
 	startingState->initialize(aiController_, animatedSprite_);
 	aiController_->initialize(startingState);
+	// Initialize Kinematic
+	Kinematic::initialize(startPosition, startRotation);
 }
 
 void Animal::update(float deltatime) {
-	animatedSprite_->update(deltatime);
 	aiController_->update(deltatime);
+	animatedSprite_->update(deltatime);
 }
 
 void Animal::draw(sf::RenderWindow& window) {

@@ -2,8 +2,9 @@
 #include "AIController.h"
 #include "AnimatedSprite.h"
 #include "../AI/AnimalStates.h"
+#include "../Flocking/Semi-Primitives/Kinematic.h"
 
-class Animal : public WorldObject {
+class Animal : public WorldObject, public Kinematic {
 private:
 	AIController* aiController_;
 	AnimatedSprite* animatedSprite_;

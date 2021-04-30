@@ -23,6 +23,9 @@
       <UniqueIdentifier>{78e8ee65-8b32-4b1c-8871-8ea4472e425f}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="AI\SteeringPipeline">
+      <UniqueIdentifier>{eefd0e0d-1ce2-4849-95a8-6654b8ada107}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -71,6 +74,9 @@
     <ClCompile Include="AI\SheepStates\SheepSeparateState.cpp">
       <Filter>AI\SheepStates</Filter>
     </ClCompile>
+    <ClCompile Include="Semi-Primitives\Kinematic.cpp">
+      <Filter>Semi-Primitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI\AnimalStates.h">
@@ -118,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="AI\SheepStates\SheepSeparateState.h">
       <Filter>AI\SheepStates</Filter>
+    </ClInclude>
+    <ClInclude Include="Semi-Primitives\Kinematic.h">
+      <Filter>Semi-Primitives</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
