@@ -8,6 +8,6 @@ public:
 	void update(float deltaTime) override;
 	void enter() override;
 	void exit() override;
-	PredatorChaseState(AIController* parent, AnimatedSprite* owner);
+	PredatorChaseState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic);
 };
 

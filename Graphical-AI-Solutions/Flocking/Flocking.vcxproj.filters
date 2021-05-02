@@ -77,6 +77,9 @@
     <ClCompile Include="Semi-Primitives\Kinematic.cpp">
       <Filter>Semi-Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="WanderSteering.cpp">
+      <Filter>AI\SteeringBehaviors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI\AnimalStates.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="Semi-Primitives\Kinematic.h">
       <Filter>Semi-Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderSteering.h">
+      <Filter>AI\SteeringBehaviors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

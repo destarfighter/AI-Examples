@@ -12,5 +12,5 @@ void SheepDeathState::exit()
 {
 }
 
-SheepDeathState::SheepDeathState(AIController* parent, AnimatedSprite* owner)
-	: AnimalState(parent, owner) { }
+SheepDeathState::SheepDeathState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic)
+	: AnimalState(parent, owner, ownerKinematic) { }

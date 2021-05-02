@@ -12,5 +12,5 @@ void PredatorWanderState::exit()
 {
 }
 
-PredatorWanderState::PredatorWanderState(AIController* parent, AnimatedSprite* owner)
-	: AnimalState(parent, owner) { }
+PredatorWanderState::PredatorWanderState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic)
+	: AnimalState(parent, owner, ownerKinematic) { }

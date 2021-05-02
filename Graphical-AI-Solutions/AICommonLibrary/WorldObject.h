@@ -5,7 +5,7 @@
 
 struct AICOMMONLIBRARY_API WorldObjectIdentifier {
 	std::string name_;
-	int priority_;
+	int priority_{0};
 
 	friend bool operator==(const WorldObjectIdentifier& lhs, const WorldObjectIdentifier& rhs) {
 		return lhs.name_ == rhs.name_;

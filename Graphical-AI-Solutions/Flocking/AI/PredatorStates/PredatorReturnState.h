@@ -8,6 +8,6 @@ public:
 	void update(float deltaTime) override;
 	void enter() override;
 	void exit() override;
-	PredatorReturnState(AIController* parent, AnimatedSprite* owner);
+	PredatorReturnState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic);
 };
 

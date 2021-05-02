@@ -25,6 +25,12 @@ sf::Vector2f Kinematic::getPosition() {
 	return position_;
 }
 
-float Kinematic::getRotation() {
+float Kinematic::getOrientation() {
 	return rotation_;
 }
+
+sf::Vector2f Kinematic::getOrientationAsVector()
+{
+	return sf::Vector2f(std::cos(rotation_), sin(rotation_));
+}
+

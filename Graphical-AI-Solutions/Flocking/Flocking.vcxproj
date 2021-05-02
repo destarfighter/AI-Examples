@@ -163,6 +163,7 @@
     <ClCompile Include="AI\PredatorStates\PredatorChaseState.cpp" />
     <ClCompile Include="AI\PredatorStates\PredatorReturnState.cpp" />
     <ClCompile Include="AI\PredatorStates\PredatorWanderState.cpp" />
+    <ClCompile Include="WanderSteering.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\AICommonLibrary\AnimatedSprite.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="AI\PredatorStates\PredatorChaseState.h" />
     <ClInclude Include="AI\PredatorStates\PredatorReturnState.h" />
     <ClInclude Include="AI\PredatorStates\PredatorWanderState.h" />
+    <ClInclude Include="WanderSteering.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\flockSpriteSheet.png" />

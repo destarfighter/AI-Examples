@@ -12,5 +12,5 @@ void PredatorChaseState::exit()
 {
 }
 
-PredatorChaseState::PredatorChaseState(AIController* parent, AnimatedSprite* owner)
-: AnimalState(parent, owner) { }
+PredatorChaseState::PredatorChaseState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic)
+: AnimalState(parent, owner, ownerKinematic) { }

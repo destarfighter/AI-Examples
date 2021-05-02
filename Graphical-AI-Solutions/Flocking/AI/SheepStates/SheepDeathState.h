@@ -8,6 +8,6 @@ public:
 	void update(float deltaTime) override;
 	void enter() override;
 	void exit() override;
-	SheepDeathState(AIController* parent, AnimatedSprite* owner);
+	SheepDeathState(AIController* parent, AnimatedSprite* owner, Kinematic* ownerKinematic);
 };
 

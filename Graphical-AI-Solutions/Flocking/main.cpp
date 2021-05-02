@@ -35,7 +35,7 @@ std::shared_ptr<Animal> createAnimal(AnimData animData, AnimalState* startState,
     auto newAnimal_ptr = std::make_shared<Animal>(*(new Animal));
 
     // Set Random position withing spawn area
-    int spawnOffset = numberOfAnimals * TILESIZE;
+    int spawnOffset = numberOfAnimals * (TILESIZE / 2);
 
     sf::Vector2f startPosition(spawnArea.x + ((rand() % spawnOffset) - (spawnOffset / 2)),
         spawnArea.y + (rand() % spawnOffset) - (spawnOffset / 2));
@@ -58,7 +58,7 @@ std::shared_ptr<Animal> createSheep(std::shared_ptr<sf::Texture> texture, int sh
     frameInfo.push_back(SHEEP_DYING_ANIMATION);
     AnimData animData{ texture, frameInfo, frameInfo.size() };
 
-    return createAnimal(animData, new AnimalState(nullptr, nullptr), SHEEP_NAME, SHEEP_SPAWN_AREA, NUMBER_OF_SHEEP); // TODO: Add startState for sheep
+    return createAnimal(animData, new AnimalState(nullptr, nullptr, nullptr), SHEEP_NAME, SHEEP_SPAWN_AREA, NUMBER_OF_SHEEP); // TODO: Add startState for sheep
 }
 
 std::shared_ptr<Animal> createPredator(std::shared_ptr<sf::Texture> texture, int predatorIndex) {
@@ -69,7 +69,7 @@ std::shared_ptr<Animal> createPredator(std::shared_ptr<sf::Texture> texture, int
     frameInfo.push_back(PREDATOR_EATING_ANIMATION);
     AnimData animData{ texture, frameInfo, frameInfo.size()};
     
-    return createAnimal(animData, new AnimalState(nullptr, nullptr), PREDATOR_NAME, PREDATOR_SPAWN_AREA, NUMBER_OF_PREDATORS); // TODO: Add startState for predator
+    return createAnimal(animData, new AnimalState(nullptr, nullptr, nullptr), PREDATOR_NAME, PREDATOR_SPAWN_AREA, NUMBER_OF_PREDATORS); // TODO: Add startState for predator
 }
 
 int main()

@@ -17,7 +17,7 @@
 #define FRAME_RATE 12
 
 // Sheep
-#define SHEEP_SPAWN_AREA sf::Vector2u(100, 100)
+#define SHEEP_SPAWN_AREA sf::Vector2u(150, 150)
 #define SHEEP_NAME "sheep"
 #define SHEEP_SPRITESHEET_FILE "Resources/Images/flockSpriteSheet.png"
 #define SHEEP_WALKING_SPEED 0
@@ -39,7 +39,7 @@
 #define PREDATOR_RUNNING_SPEED 0
 #define NUMBER_OF_PREDATORS 5
 // Predator Animations
-#define PREDATOR_IDLE_ANIMATION AnimFrameData{ sf::Rect<int>(0, 78, 21, 26), 5, "idle" }
+#define PREDATOR_IDLE_ANIMATION AnimFrameData{ sf::Rect<int>(0, 78, 21, 26), 6, "idle" }
 #define PREDATOR_RUNNING_ANIMATION AnimFrameData{ sf::Rect<int>(273, 78, 21, 26), 4, "running" }
 #define PREDATOR_WALKING_ANIMATION AnimFrameData{ sf::Rect<int>(126, 78, 21, 26), 6, "walking" }
 #define PREDATOR_EATING_ANIMATION AnimFrameData{ sf::Rect<int>(104, 0, 21, 26), 10, "eating" }

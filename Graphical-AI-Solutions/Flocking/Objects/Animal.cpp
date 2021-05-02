@@ -16,7 +16,7 @@ void Animal::initialize(AnimData animData, unsigned int startingAnimNum, sf::Vec
 	animatedSprite_->setRotation(startRotation);
 	animatedSprite_->initialize(animData, startingAnimNum);
 	// Initialize AIController
-	startingState->initialize(aiController_, animatedSprite_);
+	startingState->initialize(aiController_, animatedSprite_, this);
 	aiController_->initialize(startingState);
 	// Initialize Kinematic
 	Kinematic::initialize(startPosition, startRotation);
